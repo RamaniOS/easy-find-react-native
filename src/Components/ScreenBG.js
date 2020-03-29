@@ -10,7 +10,6 @@ const ScreenBG = props => {
   const { screenBgStyle } = styles;
   return (
     <ImageBackground style={screenBgStyle} source={props.image}>
-      <Text>{props.name}</Text>
     </ImageBackground>
   )
 };
