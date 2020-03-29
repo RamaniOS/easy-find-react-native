@@ -1,3 +1,6 @@
+/*
+Custom fonts
+*/
 const fonts = { 
     "font_regular": "Quicksand-Regular",
     "font_bold": "Quicksand-Bold",

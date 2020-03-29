@@ -1,4 +1,6 @@
-
+/*
+Export assets
+*/
 import Images from './Images';
 import Fonts from './Fonts';
 
