@@ -6,10 +6,11 @@ import React from 'react';
 import {StyleSheet, ImageBackground } from 'react-native';
 import Images from '../theme/';
 
-const ScreenBG = () => {
-  const { style } = styles;
+const ScreenBG = props => {
+  const { screenBgStyle } = styles;
   return (
-    <ImageBackground style={style} source={Images.splash}>
+    <ImageBackground style={screenBgStyle} source={props.image}>
+      <Text>{props.name}</Text>
     </ImageBackground>
   )
 };
@@ -22,4 +23,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ScreenBG;
+export {ScreenBG};

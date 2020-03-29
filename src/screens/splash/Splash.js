@@ -3,9 +3,8 @@ Slpash screen
 */
 
 import React, { Component } from 'react'
-import Images from '../../theme/'
-// import ScreenBG from '../../Components/'
-import ScreenBG from '../../Components/'
+import {Images} from '../../theme/'
+import {ScreenBG} from '../../Components/'
 import {
   View
 } from 'react-native'
@@ -15,7 +14,9 @@ class Splash extends Component {
   render() {      
     return (
        <View style={styles.splashScreen}>
-         <ScreenBG></ScreenBG>
+         <ScreenBG
+             image={Images.splash}                  
+         ></ScreenBG>
        </View>
     )
   }
