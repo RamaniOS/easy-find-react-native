@@ -2,9 +2,9 @@
 This class for setting image as background image of screen
 */
 
-import React from 'react';
+import React from './node_modules/react';
 import {StyleSheet, ImageBackground } from 'react-native';
-import Images from '../theme/';
+import Images from '../theme';
 
 const ScreenBG = props => {
   const { screenBgStyle } = styles;

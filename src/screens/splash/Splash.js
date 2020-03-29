@@ -3,8 +3,8 @@ Slpash screen
 */
 
 import React, { Component } from 'react'
-import {Images} from '../../theme/'
-import {ScreenBG} from '../../Components/'
+import {Images} from '../../theme'
+import {ScreenBG} from '../../components'
 import {
   View,
   Text
@@ -12,7 +12,12 @@ import {
 import styles from './SplashStyle'
 
 class Splash extends Component {
-  render() {      
+
+  componentDidMount() {
+    console.log("on welcome screen");
+  }
+
+  render() {          
     return (
        <View style={styles.splashScreen}>
          <ScreenBG image={Images.splash}></ScreenBG>

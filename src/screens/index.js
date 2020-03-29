@@ -1,8 +1,10 @@
 /*
 Export screens
 */
-import Splash from './splash'
+import Splash from './Splash'
+import Login from './Login'
 
 export {
-    Splash
+    Splash,
+    Login
 }
