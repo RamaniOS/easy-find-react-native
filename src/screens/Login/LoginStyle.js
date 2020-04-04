@@ -14,7 +14,7 @@ export default StyleSheet.create({
         flex: 1
     },
     topView: {
-        flex: 0.4,
+        flex: 0.56,
         backgroundColor: Colors.theme_color,
     },
     title: {
@@ -35,7 +35,7 @@ export default StyleSheet.create({
     },
     bottomView: {
         alignSelf:'center',
-        flex: 0.4,
+        height: 227,
         top: -80,
         width: '90%',
         backgroundColor: '#FFF',
