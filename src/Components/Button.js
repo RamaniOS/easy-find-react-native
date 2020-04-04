@@ -5,11 +5,12 @@ This class for Button
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {Colors} from '../theme/'
+import LinearGradient from 'react-native-linear-gradient';
 
 const Button = ({ onPress, title }) => {
   return (
     <TouchableOpacity style={[styles.buttonStyle]} onPress={onPress} >
-      <Text style={[styles.textStyle]}>Sign In</Text>
+        <Text style={[styles.textStyle]}>Sign In</Text>
     </TouchableOpacity>
   );
 };
@@ -33,6 +34,12 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 1, height: 2 },
     textShadowRadius: 1,     
   },
+  gradient: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems:'center',
+    borderRadius: 5
+  }
 });
 
 export {Button};

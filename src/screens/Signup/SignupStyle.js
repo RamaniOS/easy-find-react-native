@@ -1,5 +1,5 @@
 /*
-Style for Login screen
+Style for Signup screen
 */
 
 import {StyleSheet} from 'react-native'
@@ -14,7 +14,7 @@ export default StyleSheet.create({
         flex: 1
     },
     topView: {
-        height: 300,
+        height: 400,
         backgroundColor: Colors.theme_color,
     },
     title: {
@@ -28,15 +28,15 @@ export default StyleSheet.create({
     },
     accountTitle: {
         fontFamily: 'Arial',
-        bottom: 120,
+        bottom: 200,
         fontSize: 20,
         alignSelf: "center",
         color: '#fff'
     },
     bottomView: {
         alignSelf:'center',
-        height: 227,
-        top: -80,
+        height: 357,
+        top: -150,
         width: '90%',
         backgroundColor: '#FFF',
         borderRadius: 10,
@@ -48,20 +48,5 @@ export default StyleSheet.create({
         shadowOpacity: 0.44,
         shadowRadius: 10.32,
         elevation: 16,
-    },
-    signupContainer: {
-        alignSelf: "center"
-    },
-    signupStyle: {
-        fontFamily: 'Arial',
-        fontSize: 18,
-        color: '#000',
-        fontWeight: "bold"
-    },
-    signup: {
-        fontFamily: 'Arial',
-        fontSize: 20,
-        color: '#000',
-        textDecorationLine: 'underline'
     }
 })

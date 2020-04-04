@@ -14,7 +14,7 @@ const Input = props => {
           placeholder={props.placeHolderText}
           style={inputStyle}
           autoCorrect={false}
-          placeholderTextColor={'#D3D3D3'}
+          placeholderTextColor={Colors.placeholder_color}
           secureTextEntry={props.isSecureEntry}
         />
     </View>
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 14,
     borderWidth: 1,
-    borderColor: '#D3D3D3',
+    borderColor: Colors.placeholder_color,
     backgroundColor:'transparent',
     height: 45,
     borderRadius: 5,

@@ -1,5 +1,5 @@
 /*
-Login screen
+SignUp screen
 */
 
 import React, { Component, Fragment } from 'react'
@@ -10,11 +10,11 @@ import {
   SafeAreaView,
   StatusBar
 } from 'react-native'
-import styles from './LoginStyle'
+import styles from './SignupStyle'
 import {Input, Button} from '../../components'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-class Login extends Component {
+class Signup extends Component {
   render() {      
     return (
       <Fragment>
@@ -23,25 +23,23 @@ class Login extends Component {
        <SafeAreaView style={styles.mainView}>
        <KeyboardAwareScrollView>
          <View style={styles.topView}>
-          <Text style={styles.title}>Sign In</Text>
+          <Text style={styles.title}>Sign Up</Text>
          </View>
-         <Text style={styles.accountTitle}>Login to your account</Text>
+         <Text style={styles.accountTitle}>Create your account</Text>
          <View style={styles.bottomView}>
            <Input placeHolderText={'User name'}>
            </Input>
+           <Input placeHolderText={'Full name'}>
+           </Input>
            <Input placeHolderText={'Password'} isSecureEntry= {true}>
            </Input>
+           <Input placeHolderText={'Confirm Password'} isSecureEntry= {true}>
+           </Input>
            <Button>
-             title={'SIGN IN'}
+             title={'SIGN UP'}
              onPress={() => { alert('Login clicked') }}
            </Button>
          </View>
-         <TouchableOpacity onPress={() => { alert('Signup Popup')}}>
-            <Text style={styles.signupContainer}>
-              <Text style={styles.signupStyle}>Don't have an account?</Text>
-              <Text style={styles.signup}> Sign up </Text>
-            </Text>
-          </TouchableOpacity> 
           </KeyboardAwareScrollView>
        </SafeAreaView>
        </Fragment>
@@ -49,4 +47,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Signup;
