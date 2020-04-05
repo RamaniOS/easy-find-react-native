@@ -3,7 +3,7 @@ Style for splash screen
 */
 
 import {StyleSheet} from 'react-native'
-import {Fonts} from '../../theme'
+import {Fonts, Colors} from '../../theme'
 
 export default StyleSheet.create({
     splashScreen:{
