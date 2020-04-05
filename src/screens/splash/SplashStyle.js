@@ -17,12 +17,12 @@ export default StyleSheet.create({
         left: 0
     },
     splashLogo: {
-        color: '#fff',
+        color: Colors.white,
         fontSize: 100,
         fontFamily: Fonts.font_regular
     },
     splashTitle: {
-        color: '#fff',
+        color: Colors.white,
         fontSize: 40,
         fontFamily: Fonts.font_light
     }

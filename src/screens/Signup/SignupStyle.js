@@ -23,7 +23,7 @@ export default StyleSheet.create({
         fontFamily: 'Arial',
         fontSize: 30,
         alignSelf: "center",
-        color: '#fff',
+        color: Colors.white,
         fontWeight: "bold"
     },
     accountTitle: {
@@ -31,16 +31,16 @@ export default StyleSheet.create({
         bottom: 200,
         fontSize: 20,
         alignSelf: "center",
-        color: '#fff'
+        color: Colors.white,
     },
     bottomView: {
         alignSelf:'center',
         height: 357,
         top: -150,
         width: '90%',
-        backgroundColor: '#FFF',
+        backgroundColor: Colors.white,
         borderRadius: 10,
-        shadowColor: "#000",
+        shadowColor: Colors.black,
         shadowOffset: {
 	        width: 0,
 	        height: 8,
