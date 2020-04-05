@@ -6,16 +6,18 @@ import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import {Colors, Fonts} from '../theme/'
 
-const Input = props => {
+const Input = ({ value, onChangeText, placeHolderText, isSecureEntry }) => {
   const { inputStyle,  containerStyle} = styles;
   return (
     <View style={containerStyle}>
         <TextInput
-          placeholder={props.placeHolderText}
+          value ={value}
+          onChangeText={onChangeText}
+          placeholder={placeHolderText}
           style={inputStyle}
           autoCorrect={false}
           placeholderTextColor={Colors.placeholder_color}
-          secureTextEntry={props.isSecureEntry}
+          secureTextEntry={isSecureEntry}
         />
     </View>
   )
