@@ -4,7 +4,7 @@ This class for TextField
 
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
-import {Colors} from '../theme/'
+import {Colors, Fonts} from '../theme/'
 
 const Input = props => {
   const { inputStyle,  containerStyle} = styles;
@@ -28,15 +28,14 @@ const styles = StyleSheet.create({
     width: '90%'
   },
   inputStyle: {
-    color: '#000',
+    color: Colors.black,
     padding: 10,
-    fontSize: 14,
+    fontSize: 18,
     borderWidth: 1,
     borderColor: Colors.placeholder_color,
-    backgroundColor:'transparent',
     height: 45,
     borderRadius: 5,
-    fontFamily: 'Arial'
+    fontFamily: Fonts.font_regular
   }
 });
 

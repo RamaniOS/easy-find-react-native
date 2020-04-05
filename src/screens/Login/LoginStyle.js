@@ -14,22 +14,21 @@ export default StyleSheet.create({
         flex: 1
     },
     topView: {
-        height: 300,
+        height: '100%',
         backgroundColor: Colors.theme_color,
     },
     title: {
         position: "relative",
-        top: 20,
-        fontFamily: 'Arial',
+        top: '15%',
+        fontFamily: Fonts.font_bold,
         fontSize: 30,
         alignSelf: "center",
-        color: Colors.white,
-        fontWeight: "bold"
+        color: Colors.white
     },
     accountTitle: {
-        fontFamily: 'Arial',
+        fontFamily: Fonts.font_regular,
         bottom: 120,
-        fontSize: 20,
+        fontSize: 22,
         alignSelf: "center",
         color: Colors.white,
     },
@@ -53,13 +52,12 @@ export default StyleSheet.create({
         alignSelf: "center"
     },
     signupStyle: {
-        fontFamily: 'Arial',
+        fontFamily: Fonts.font_bold,
         fontSize: 18,
-        color: Colors.black,
-        fontWeight: "bold"
+        color: Colors.black
     },
     signup: {
-        fontFamily: 'Arial',
+        fontFamily: Fonts.font_regular,
         fontSize: 20,
         color: Colors.black,
         textDecorationLine: 'underline'

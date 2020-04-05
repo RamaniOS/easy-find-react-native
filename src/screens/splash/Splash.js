@@ -10,11 +10,14 @@ import {
   Text
 } from 'react-native'
 import styles from './SplashStyle'
+import { Actions } from 'react-native-router-flux';
 
 class Splash extends Component {
 
   componentDidMount() {
-    console.log("on welcome screen");
+    setTimeout(() => {
+      Actions.Login()
+    }, 2000)
   }
 
   render() {          

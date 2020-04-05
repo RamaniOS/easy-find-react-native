@@ -33,7 +33,7 @@ class Signup extends Component {
        <StatusBar barStyle="light-content"/>
       <SafeAreaView style={styles.safeTop}></SafeAreaView>
        <SafeAreaView style={styles.mainView}>
-       <KeyboardAwareScrollView>
+       <KeyboardAwareScrollView bounces={false}>
          <View style={styles.topView}>
           <Text style={styles.title}>Sign Up</Text>
          </View>
@@ -58,12 +58,12 @@ class Signup extends Component {
             isSecureEntry= {true}
             onChangeText = {confirmPassword => this.state({confirmPassword})}
            />
-           <Button>
+           <Button
              title={'SIGN UP'}
              onPress = {() => {
                 this.signupButtonClicked()
               }}
-           </Button>
+            />
          </View>
           </KeyboardAwareScrollView>
        </SafeAreaView>
@@ -73,7 +73,6 @@ class Signup extends Component {
 
   // Actions
   signupButtonClicked() {
-    alert('df')
     if (this.userName == '') {
 
     }

@@ -7,12 +7,12 @@ import {
   Login,
   Signup
 } from './screens/index'; 
-//import Router from './Router';
+import Router from './Router';
 
 export default class App extends Component {
   render() {
    return (
-          <Signup></Signup>
+          <Router/>
       )
   }
 }

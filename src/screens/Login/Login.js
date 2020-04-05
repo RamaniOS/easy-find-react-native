@@ -21,7 +21,7 @@ class Login extends Component {
        <StatusBar barStyle="light-content"/>
       <SafeAreaView style={styles.safeTop}></SafeAreaView>
        <SafeAreaView style={styles.mainView}>
-       <KeyboardAwareScrollView>
+       <KeyboardAwareScrollView bounces={false}>
          <View style={styles.topView}>
           <Text style={styles.title}>Sign In</Text>
          </View>
@@ -31,12 +31,12 @@ class Login extends Component {
            </Input>
            <Input placeHolderText={'Password'} isSecureEntry= {true}>
            </Input>
-           <Button>
+           <Button
              title={'SIGN IN'}
              onPress={() => { alert('Login clicked') }}
-           </Button>
+             />
          </View>
-         <TouchableOpacity onPress={() => { alert('Signup Popup')}}>
+         <TouchableOpacity onPress={() => { this.props.navigation.navigate('Signup')}}>
             <Text style={styles.signupContainer}>
               <Text style={styles.signupStyle}>Don't have an account?</Text>
               <Text style={styles.signup}> Sign up </Text>
