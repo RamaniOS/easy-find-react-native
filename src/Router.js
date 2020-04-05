@@ -3,41 +3,74 @@ Router
 */
 
 import React from 'react';
-import { Scene, Router} from 'react-native-router-flux';
+import { Scene, Router, Tabs } from 'react-native-router-flux';
+import { Images } from './theme/';
+import { TabIcon } from './components';
 
 import {
     Splash,
     Login,
     Signup,
+    Search,
+    Settings
 } from './screens/index';
 
-const RouterComponent = () => {    
+const RouterComponent = () => {
     return (
-      <Router>
-      <Scene key="root">
-         <Scene 
-         key = "splash" 
-         component = {Splash} 
-         title = "Splash" 
-         initial = {true} 
-         hideNavBar={true}
-         />
-         <Scene 
-         key = "Login" 
-         component = {Login} 
-         title = "Login" 
-         hideNavBar={true} 
-         gestureEnable={false}
-         panHandlers={null}
-         />
-         <Scene 
-         key = "Signup" 
-         component = {Signup} 
-         title = "Signup" 
-         hideNavBar={true}
-         />
-      </Scene>
-   </Router>
+        <Router>
+            <Scene key="root">
+                <Scene
+                    key="splash"
+                    component={Splash}
+                    title="Splash"
+                    initial={true}
+                    hideNavBar={true}
+                />
+                <Scene
+                    key="Login"
+                    component={Login}
+                    title="Login"
+                    hideNavBar={true}
+                    gestureEnable={false}
+                    panHandlers={null}
+                />
+                <Scene
+                    key="Signup"
+                    component={Signup}
+                    title="Signup"
+                    hideNavBar={true}
+                />
+                <Tabs
+                    showLabel={false}
+                    lazy={true}
+                    swipeEnabled={false}
+                    gestureEnable={false}
+                    panHandlers={null}
+                    tabBarStyle={{ bottom: 10 }}
+                    type="reset"
+                    key="tab"
+                >
+                    <Scene hideNavBar={true} key="search" component={Search}
+                        icon={({ focused }) => (
+                            <TabIcon focused={focused} title={'Search'}
+                                ImgSize={{ width: 25, height: 25, }}
+                                activeImg={Images.home}
+                                defaultImg={Images.home}
+                            />
+                        )}
+                    />
+                    <Scene hideNavBar={true} key="settings" component={Settings}
+                        icon={({ focused }) => (
+                            <TabIcon focused={focused} title={'Settings'}
+                                ImgSize={{ width: 25, height: 25, }}
+                                activeImg={Images.settings}
+                                defaultImg={Images.settings}
+                            />
+                        )}
+                    />
+                </Tabs>
+            </Scene>
+        </Router>
     );
 };
 

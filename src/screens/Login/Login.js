@@ -15,6 +15,7 @@ import { Input, Button } from '../../components'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { password_regex, user_name_regex } from '../../Utilis'
 import * as Constants from '../../Constants'
+import { Actions } from 'react-native-router-flux'
 
 class Login extends Component {
 
@@ -29,6 +30,8 @@ class Login extends Component {
 
   // Actions
   loginButtonClicked() {
+    Actions.tab()
+    return
     if (!user_name_regex.test(this.state.userName)) {
       alert(Constants.ERROR_INVALID_USER_NAME)
     } else if (!password_regex.test(this.state.password)) {
