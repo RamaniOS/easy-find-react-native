@@ -7,13 +7,17 @@ import {
   View,
   Text,
   SafeAreaView,
-  StatusBar
+  StatusBar,
+  TouchableOpacity,
+  Image
 } from 'react-native'
 import styles from './SignupStyle'
 import { Input, Button } from '../../components'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { password_regex, user_name_regex, name_regex } from '../../Utilis'
 import * as Constants from '../../Constants'
+import { Images } from '../../theme'
+import { Actions } from 'react-native-router-flux'
 
 class Signup extends Component {
 
@@ -43,6 +47,10 @@ class Signup extends Component {
     }
   }
 
+  backButtonClicked() {
+    Actions.pop()
+  }
+
   // Render UI objects
   render() {
     return (
@@ -52,7 +60,12 @@ class Signup extends Component {
         <SafeAreaView style={styles.mainView}>
           <KeyboardAwareScrollView bounces={false}>
             <View style={styles.topView}>
-              <Text style={styles.title}>Sign Up</Text>
+              <View style={styles.navContainer}>
+                <TouchableOpacity style={styles.backButton} onPress={() => { this.backButtonClicked() }}>
+                  <Image source={Images.back}/>
+                </TouchableOpacity>
+                <Text style={styles.title}>Sign Up</Text>
+              </View>
             </View>
             <Text style={styles.accountTitle}>Create your account</Text>
             <View style={styles.bottomView}>

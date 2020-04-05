@@ -14,16 +14,26 @@ export default StyleSheet.create({
         flex: 1
     },
     topView: {
-        height: '100%',
+        height: '80%',
         backgroundColor: Colors.theme_color,
     },
+    navContainer: {
+        top: '10%',
+        height: 50
+    },
     title: {
-        position: "relative",
-        top: '15%',
+        position: 'absolute',
         fontFamily: Fonts.font_bold,
         fontSize: 30,
         alignSelf: "center",
-        color: Colors.white,
+        color: Colors.white
+    },
+    backButton: {
+        alignSelf: "flex-start",
+        top: '15%',
+        left: 20,
+        width: 50,
+        height: 50
     },
     accountTitle: {
         fontFamily: Fonts.font_regular,
