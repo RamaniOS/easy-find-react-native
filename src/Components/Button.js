@@ -3,20 +3,27 @@ This class for Button
 */
 
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {Colors, Fonts} from '../theme/'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Colors, Fonts } from '../theme/'
+import LinearGradient from 'react-native-linear-gradient';
 
 const Button = ({ onPress, title }) => {
   return (
-    <TouchableOpacity style={[styles.buttonStyle]} onPress = {onPress}>
-        <Text style={[styles.textStyle]}>{title}</Text>
+    <TouchableOpacity style={[styles.buttonStyle]} onPress={onPress}>
+      <LinearGradient 
+      colors={[Colors.theme_color, Colors.theme_dark_color]}
+      style={styles.linearGradient}
+      >
+      <Text style={[styles.buttonText]}>{title}</Text>
+      </LinearGradient>
+
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   buttonStyle: {
-    position:'relative',
+    position: 'relative',
     height: 45,
     backgroundColor: Colors.theme_color,
     justifyContent: 'center',
@@ -25,14 +32,18 @@ const styles = StyleSheet.create({
     borderRadius: 21,
     top: 30
   },
-  textStyle: {
-    fontFamily: Fonts.font_bold,
-    color: Colors.white,
+  buttonText: {
     fontSize: 18,
-    alignSelf: 'center',     
-    textShadowOffset: { width: 1, height: 2 },
-    textShadowRadius: 1,     
+    fontFamily: Fonts.font_bold,
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+  },
+  linearGradient: {
+    flex: 1,
+    borderRadius: 21
   }
 });
 
-export {Button};
+export { Button };
