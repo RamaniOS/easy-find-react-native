@@ -21,8 +21,11 @@ class Search extends Component {
   // Render UI objects 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: 'red'}}></View>
-      )
+      <>
+        <SafeAreaView></SafeAreaView>
+        <View style={{ flex: 1, backgroundColor: 'red' }}></View>
+      </>
+    )
   }
 }
 

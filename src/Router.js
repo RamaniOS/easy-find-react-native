@@ -12,13 +12,14 @@ import {
     Login,
     Signup,
     Search,
-    Settings
+    Settings,
+    Favourite
 } from './screens/index';
 
 const RouterComponent = () => {
     return (
         <Router>
-            <Scene key="root">
+            <Scene key="root" hideNavBar>
                 <Scene
                     key="splash"
                     component={Splash}
@@ -54,8 +55,17 @@ const RouterComponent = () => {
                         icon={({ focused }) => (
                             <TabIcon focused={focused} title={'Search'}
                                 ImgSize={{ width: 25, height: 25, }}
-                                activeImg={Images.home}
-                                defaultImg={Images.home}
+                                activeImg={Images.home_tab}
+                                defaultImg={Images.home_tab}
+                            />
+                        )}
+                    />
+                    <Scene hideNavBar={true} key="favourite" component={Favourite}
+                        icon={({ focused }) => (
+                            <TabIcon focused={focused} title={'Favourite'}
+                                ImgSize={{ width: 25, height: 25, }}
+                                activeImg={Images.fav_tab}
+                                defaultImg={Images.fav_tab}
                             />
                         )}
                     />
@@ -63,8 +73,8 @@ const RouterComponent = () => {
                         icon={({ focused }) => (
                             <TabIcon focused={focused} title={'Settings'}
                                 ImgSize={{ width: 25, height: 25, }}
-                                activeImg={Images.settings}
-                                defaultImg={Images.settings}
+                                activeImg={Images.settings_tab}
+                                defaultImg={Images.settings_tab}
                             />
                         )}
                     />

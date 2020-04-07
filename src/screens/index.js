@@ -6,11 +6,13 @@ import Login from './Login'
 import Signup from './Signup'
 import Search from './Search'
 import Settings from './Settings'
+import Favourite from './Favourite'
 
 export {
     Splash,
     Login,
     Signup,
     Search,
-    Settings
+    Settings,
+    Favourite
 }

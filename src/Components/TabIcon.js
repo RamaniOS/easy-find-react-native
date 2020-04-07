@@ -17,7 +17,7 @@ const TabIcon = (props) => {
 
 const styles = StyleSheet.create({
     viewMainContainer: { marginTop: 8, alignSelf: 'stretch', justifyContent: 'flex-start', height: 40, alignItems: 'center', },
-    titleText: { marginTop: 8, marginBottom: 0, textAlign: 'center', fontSize: 10, textTransform: "uppercase", fontFamily: Fonts.font_bold }
+    titleText: { marginTop: 8, marginBottom: 0, textAlign: 'center', fontSize: 12, textTransform: "uppercase", fontFamily: Fonts.font_bold }
 });
 
 export { TabIcon };
