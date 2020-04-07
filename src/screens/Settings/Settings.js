@@ -11,7 +11,7 @@ import {
   StatusBar
 } from 'react-native'
 import styles from './SettingsStyle'
-import { Input, Button } from '../../components'
+import { Input, Button, TitleView } from '../../components'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { password_regex, user_name_regex } from '../../Utilis'
 import * as Constants from '../../Constants'
@@ -23,9 +23,11 @@ class Settings extends Component {
     return (
       <>
         <SafeAreaView></SafeAreaView>
-        <View style={{ flex: 1, backgroundColor: 'pink' }}></View>
+        <View style={styles.mainConatiner}>
+          <TitleView title={'Settings'}></TitleView>
+        </View>
       </>
-      )
+    )
   }
 }
 

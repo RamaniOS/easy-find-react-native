@@ -11,7 +11,7 @@ import {
   StatusBar
 } from 'react-native'
 import styles from './FavouriteStyle'
-import { Input, Button } from '../../components'
+import { Input, Button, TitleView } from '../../components'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { password_regex, user_name_regex } from '../../Utilis'
 import * as Constants from '../../Constants'
@@ -22,10 +22,12 @@ class Favourite extends Component {
   render() {
     return (
       <>
-      <SafeAreaView></SafeAreaView>
-      <View style={{flex: 1, backgroundColor: 'yellow'}}></View>
+        <SafeAreaView></SafeAreaView>
+        <View style={styles.mainConatiner}>
+          <TitleView title={'Favourite'}></TitleView>
+        </View>
       </>
-      )
+    )
   }
 }
 
