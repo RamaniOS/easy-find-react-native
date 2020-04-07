@@ -31,5 +31,8 @@ export default StyleSheet.create({
     inputContainerStyle: {
         backgroundColor: '#F0F0F0',
         borderRadius: 8
+    },
+    listContainer: {
+        flex: 1
     }
 })
