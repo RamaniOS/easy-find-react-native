@@ -15,6 +15,7 @@ import { Input, Button, TitleView } from '../../components'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { password_regex, user_name_regex } from '../../Utilis'
 import * as Constants from '../../Constants'
+import { SearchBar } from 'react-native-elements';
 
 class Search extends Component {
 
@@ -25,6 +26,11 @@ class Search extends Component {
         <SafeAreaView></SafeAreaView>
         <View style={styles.mainConatiner}>
           <TitleView title={'Search'}></TitleView>
+          <SearchBar
+            containerStyle={styles.searchBarContainer}
+            inputContainerStyle={styles.inputContainerStyle}
+            placeholder={'Search'}
+          />
         </View>
       </>
     )
