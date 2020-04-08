@@ -32,7 +32,7 @@ const ItemRestaurant = ({ item }) => {
             </View>
             <View style={styles.favStyle}>
             <TouchableOpacity>
-                <Image source={Images.un_fav} style={{height:26, width: 26}}></Image>
+                <Image source={item.isFav ? Images.fav :Images.un_fav} style={{height:26, width: 26}}></Image>
                 </TouchableOpacity>
             </View>
         </View>
