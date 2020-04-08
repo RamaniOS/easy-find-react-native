@@ -11,15 +11,22 @@ export default StyleSheet.create({
         backgroundColor: Colors.theme_color
     },
     mainView: {
-        flex: 1
+        flex: 1,
     },
-    topView: {
-        height: '100%',
+    mainContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        paddingBottom: 20
+    },
+    topContainer: {
         backgroundColor: Colors.theme_color,
+    },
+    bottomContainer: {
+      height: 300
     },
     title: {
         position: "relative",
-        top: '15%',
+        marginVertical: 20,
         fontFamily: Fonts.font_bold,
         fontSize: 30,
         alignSelf: "center",
@@ -27,15 +34,23 @@ export default StyleSheet.create({
     },
     accountTitle: {
         fontFamily: Fonts.font_regular,
-        bottom: 120,
+        marginVertical: '20%',
         fontSize: 22,
         alignSelf: "center",
         color: Colors.white,
     },
+    bottomColor: {
+        marginVertical: 0,
+        height: 110,
+        width: '100%',
+        backgroundColor: Colors.theme_color,
+        zIndex: 0
+    },
     bottomView: {
+        position: 'absolute',
         alignSelf:'center',
         height: 227,
-        top: -80,
+        marginVertical: 0,
         width: '90%',
         backgroundColor: Colors.white,
         borderRadius: 10,
@@ -47,8 +62,13 @@ export default StyleSheet.create({
         shadowOpacity: 0.44,
         shadowRadius: 10.32,
         elevation: 16,
+        zIndex: 1
     },
     signupContainer: {
+        bottom: 0,
+        position: 'relative'
+    },
+    signupText: {
         alignSelf: "center"
     },
     signupStyle: {

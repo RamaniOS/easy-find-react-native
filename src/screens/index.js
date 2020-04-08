@@ -7,6 +7,7 @@ import Signup from './Signup'
 import Search from './Search'
 import Settings from './Settings'
 import Favourite from './Favourite'
+import Detail from './Detail'
 
 export {
     Splash,
@@ -14,5 +15,6 @@ export {
     Signup,
     Search,
     Settings,
-    Favourite
+    Favourite,
+    Detail
 }

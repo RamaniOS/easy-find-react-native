@@ -6,6 +6,7 @@ import React, { Component } from 'react'
 import { FlatList } from 'react-native';
 import { Images } from '../theme'
 import { ItemRestaurant } from '../components'
+import { Actions } from 'react-native-router-flux';
 
 class RestaurantList extends Component {
 
@@ -58,7 +59,8 @@ class RestaurantList extends Component {
     }
     
     didSelectRow = (item) => {
-        alert(item.c_name)
+        Actions.Detail()
+        //this.props.navigation.navigate('Detail')
     }
 
     render() {

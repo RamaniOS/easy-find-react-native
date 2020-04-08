@@ -13,8 +13,6 @@ import {
 } from 'react-native'
 import styles from './SearchStyle'
 import { Input, Button, TitleView, RestaurantList } from '../../components'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { password_regex, user_name_regex } from '../../Utilis'
 import { SearchBar } from 'react-native-elements';
 
 class Search extends Component {

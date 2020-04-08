@@ -44,40 +44,50 @@ class Login extends Component {
   // Render UI objects 
   render() {
     return (
-      <Fragment>
+      <>
         <StatusBar barStyle="light-content" />
         <SafeAreaView style={styles.safeTop}></SafeAreaView>
         <SafeAreaView style={styles.mainView}>
-          <KeyboardAwareScrollView bounces={false}>
-            <View style={styles.topView}>
-              <Text style={styles.title}>Sign In</Text>
+          <KeyboardAwareScrollView
+            bounces={false}
+            style={{ backgroundColor: 'transparent' }}
+          >
+            <View style={styles.mainContainer}>
+              <View style={styles.topContainer}>
+                <Text style={styles.title}>Sign In</Text>
+                <Text style={styles.accountTitle}>Login to your account</Text>
+              </View>
+              <View style={styles.bottomContainer}>
+                <View style={styles.bottomColor}></View>
+                <View style={styles.bottomView}>
+                  <Input
+                    placeHolderText={'User name'}
+                    value={this.state.userName}
+                    onChangeText={(text) => this.setState({ userName: text })}
+                  />
+                  <Input
+                    placeHolderText={'Password'}
+                    isSecureEntry={true}
+                    onChangeText={(text) => this.setState({ password: text })}
+                  />
+                  <Button
+                    title={'SIGN IN'}
+                    onPress={() => { this.loginButtonClicked() }}
+                  />
+                </View>
+              </View>
+              <View style={styles.signupContainer}>
+                <TouchableOpacity onPress={() => { this.props.navigation.navigate('Signup') }}>
+                  <Text style={styles.signupText}>
+                    <Text style={styles.signupStyle}>Don't have an account?</Text>
+                    <Text style={styles.signup}> Sign up </Text>
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
-            <Text style={styles.accountTitle}>Login to your account</Text>
-            <View style={styles.bottomView}>
-              <Input
-                placeHolderText={'User name'}
-                value={this.state.userName}
-                onChangeText={(text) => this.setState({ userName: text })}
-              />
-              <Input
-                placeHolderText={'Password'}
-                isSecureEntry={true}
-                onChangeText={(text) => this.setState({ password: text })}
-              />
-              <Button
-                title={'SIGN IN'}
-                onPress={() => { this.loginButtonClicked() }}
-              />
-            </View>
-            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Signup') }}>
-              <Text style={styles.signupContainer}>
-                <Text style={styles.signupStyle}>Don't have an account?</Text>
-                <Text style={styles.signup}> Sign up </Text>
-              </Text>
-            </TouchableOpacity>
           </KeyboardAwareScrollView>
         </SafeAreaView>
-      </Fragment>
+      </>
     )
   }
 }

@@ -13,7 +13,8 @@ import {
     Signup,
     Search,
     Settings,
-    Favourite
+    Favourite,
+    Detail
 } from './screens/index';
 
 const RouterComponent = () => {
@@ -39,6 +40,12 @@ const RouterComponent = () => {
                     key="Signup"
                     component={Signup}
                     title="Signup"
+                    hideNavBar={true}
+                />
+                <Scene
+                    key="Detail"
+                    component={Detail}
+                    title="Detail"
                     hideNavBar={true}
                 />
                 <Tabs
