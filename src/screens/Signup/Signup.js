@@ -54,53 +54,56 @@ class Signup extends Component {
   // Render UI objects
   render() {
     return (
-      <Fragment>
+      <>
         <StatusBar barStyle="light-content" />
         <SafeAreaView style={styles.safeTop}></SafeAreaView>
         <SafeAreaView style={styles.mainView}>
           <KeyboardAwareScrollView bounces={false}>
-            <View style={styles.topView}>
-              <View style={styles.navContainer}>
-                <TouchableOpacity style={styles.backButton} onPress={() => { this.backButtonClicked() }}>
-                  <Image source={Images.back}/>
-                </TouchableOpacity>
-                <Text style={styles.title}>Sign Up</Text>
+            <View style={styles.mainContainer}>
+              <View style={styles.topContainer}>
+                <View style={styles.navContainer}>
+                  <TouchableOpacity style={styles.backButton} onPress={() => { this.backButtonClicked() }}>
+                    <Image source={Images.back} />
+                  </TouchableOpacity>
+                  <Text style={styles.title}>Sign Up</Text>
+                </View>
+                <Text style={styles.accountTitle}>Create your account</Text>
               </View>
-            </View>
-            <Text style={styles.accountTitle}>Create your account</Text>
-            <View style={styles.bottomView}>
-              <Input
-                placeHolderText={'User name'}
-                value={this.state.userName}
-                onChangeText={(text) => this.setState({ userName: text })}
-              />
-              <Input
-                placeHolderText={'Full name'}
-                value={this.state.fullName}
-                onChangeText={(text) => this.setState({ fullName: text })}
-              />
-              <Input
-                placeHolderText={'Password'}
-                value={this.state.password}
-                isSecureEntry={true}
-                onChangeText={(text) => this.setState({ password: text })}
-              />
-              <Input
-                placeHolderText={'Confirm Password'}
-                value={this.state.confirmPassword}
-                isSecureEntry={true}
-                onChangeText={(text) => this.setState({ confirmPassword: text })}
-              />
-              <Button
-                title={'SIGN UP'}
-                onPress={() => {
-                  this.signupButtonClicked()
-                }}
-              />
+              <View style={styles.bottomContainer}>
+                <View style={styles.bottomColor}></View>
+                <View style={styles.bottomView}>
+                  <Input
+                    placeHolderText={'User name'}
+                    value={this.state.userName}
+                    onChangeText={(text) => this.setState({ userName: text })}
+                  />
+                  <Input
+                    placeHolderText={'Full name'}
+                    value={this.state.fullName}
+                    onChangeText={(text) => this.setState({ fullName: text })}
+                  />
+                  <Input
+                    placeHolderText={'Password'}
+                    value={this.state.password}
+                    isSecureEntry={true}
+                    onChangeText={(text) => this.setState({ password: text })}
+                  />
+                  <Input
+                    placeHolderText={'Confirm Password'}
+                    value={this.state.confirmPassword}
+                    isSecureEntry={true}
+                    onChangeText={(text) => this.setState({ confirmPassword: text })}
+                  />
+                  <Button
+                    title={'SIGN UP'}
+                    onPress={() => { this.signupButtonClicked() }}
+                  />
+                </View>
+              </View>
             </View>
           </KeyboardAwareScrollView>
         </SafeAreaView>
-      </Fragment>
+      </>
     )
   }
 }
