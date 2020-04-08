@@ -8,6 +8,8 @@ import { Images } from '../theme'
 import { ItemRestaurant } from '../components'
 
 class RestaurantList extends Component {
+
+    // static items
     state = {
         DATA: [
             {
@@ -54,6 +56,10 @@ class RestaurantList extends Component {
             }
         ]
     }
+    
+    didSelectRow = (item) => {
+        alert(item.c_name)
+    }
 
     render() {
         return (
@@ -61,7 +67,7 @@ class RestaurantList extends Component {
                 data={this.state.DATA}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => (
-                    <ItemRestaurant item={item} />
+                    <ItemRestaurant item={item} onPress={this.didSelectRow}/>
                 )}
             />
         )

@@ -7,8 +7,11 @@ import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import { Colors, Fonts, Images } from '../theme'
 import { Rating } from 'react-native-elements';
 
-const ItemRestaurant = ({ item }) => {
+const ItemRestaurant = ({ item, onPress }) => {
     return (
+        <TouchableOpacity
+            onPress={()=>onPress(item)}
+        >
         <View style={styles.container}>
             <Image style={styles.avatarStyle} />
             <View style={styles.infoRowStyle}>
@@ -21,8 +24,7 @@ const ItemRestaurant = ({ item }) => {
                         type='star'
                         ratingCount={5}
                         imageSize={20}
-                        style={styles.ratingStyle}
-                        
+                        style={styles.ratingStyle} 
                     />
                     <Text style={styles.reviewStyle}>2300 Reviews</Text>
                 </View>
@@ -36,6 +38,7 @@ const ItemRestaurant = ({ item }) => {
                 </TouchableOpacity>
             </View>
         </View>
+        </TouchableOpacity>
     )
 };
 
