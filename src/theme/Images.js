@@ -7,5 +7,7 @@ const images = {
     home_tab: require('../../assets/images/home_tab.png'),
     settings_tab: require('../../assets/images/settings_tab.png'),
     fav_tab: require('../../assets/images/fav_tab.png'),
+    fav: require('../../assets/images/fav.png'),
+    un_fav: require('../../assets/images/un_fav.png'),
 };
 export default images;

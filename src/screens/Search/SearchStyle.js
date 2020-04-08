@@ -33,6 +33,7 @@ export default StyleSheet.create({
         borderRadius: 8
     },
     listContainer: {
-        flex: 1
+        flex: 1,
+        paddingBottom: 8
     }
 })
