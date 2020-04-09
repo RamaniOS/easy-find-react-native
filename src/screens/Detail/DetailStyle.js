@@ -11,7 +11,7 @@ export default StyleSheet.create({
         flex: 1,
     },
     topContainer: {
-        height: 250,
+        height: 200,
         backgroundColor: 'pink'
     },
     backButton: {
@@ -69,7 +69,7 @@ export default StyleSheet.create({
         marginVertical: 2
     },
     mapContainer: {
-        height: 200,
+        height: 150,
         width: '90%',
         alignSelf: 'center',
         marginVertical: 10,
