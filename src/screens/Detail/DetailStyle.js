@@ -67,5 +67,28 @@ export default StyleSheet.create({
         fontSize: 14,
         color: Colors.black,
         marginVertical: 2
-    }
+    },
+    mapContainer: {
+        height: 200,
+        width: '90%',
+        alignSelf: 'center',
+        marginVertical: 10,
+        shadowColor: Colors.black,
+        shadowOffset: {
+	        width: 0,
+	        height: 4,
+        },
+        shadowOpacity: 0.44,
+        shadowRadius: 7,
+        elevation: 8,
+      },
+      map: {
+        ...StyleSheet.absoluteFillObject,
+      },
+      mapAddressStyle: {
+        fontFamily: Fonts.font_regular,
+        fontSize: 16,
+        color: Colors.black,
+        marginVertical: 2
+    },
 })

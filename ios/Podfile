@@ -34,7 +34,10 @@ target 'EasyFind' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
 
   target 'EasyFindTests' do
     inherit! :search_paths
@@ -42,6 +45,11 @@ target 'EasyFind' do
   end
 
   use_native_modules!
+  # React Native Maps dependencies
+   rn_maps_path = '../node_modules/react-native-maps'
+   pod 'react-native-google-maps', :path => rn_maps_path
+   pod 'GoogleMaps'
+   pod 'Google-Maps-iOS-Utils'
 end
 
 target 'EasyFind-tvOS' do
