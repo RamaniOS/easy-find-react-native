@@ -83,6 +83,7 @@ export default StyleSheet.create({
         elevation: 8,
       },
       map: {
+        zIndex: 0,
         ...StyleSheet.absoluteFillObject,
       },
       mapAddressStyle: {
@@ -91,4 +92,23 @@ export default StyleSheet.create({
         color: Colors.black,
         marginVertical: 2
     },
+    directionButton: {
+        position: 'absolute',
+        justifyContent: 'center',
+        backgroundColor: Colors.white,
+        zIndex: 1,
+        height: 50,
+        width: 50,
+        borderRadius: 25,
+        bottom: -25,
+        right: 0,
+        shadowColor: Colors.black,
+        shadowOffset: {
+          width: 0,
+          height: 4,
+        },
+        shadowOpacity: 0.44,
+        shadowRadius: 2,
+        elevation: 2,
+      },
 })

@@ -14,7 +14,8 @@ import {
     Search,
     Settings,
     Favourite,
-    Detail
+    Detail,
+    Map,
 } from './screens/index';
 
 const RouterComponent = () => {
@@ -46,6 +47,12 @@ const RouterComponent = () => {
                     key="Detail"
                     component={Detail}
                     title="Detail"
+                    hideNavBar={true}
+                />
+                <Scene
+                    key="Map"
+                    component={Map}
+                    title="Map"
                     hideNavBar={true}
                 />
                 <Tabs

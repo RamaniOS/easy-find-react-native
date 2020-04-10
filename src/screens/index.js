@@ -8,6 +8,7 @@ import Search from './Search'
 import Settings from './Settings'
 import Favourite from './Favourite'
 import Detail from './Detail'
+import Map from './Map'
 
 export {
     Splash,
@@ -16,5 +17,6 @@ export {
     Search,
     Settings,
     Favourite,
-    Detail
+    Detail,
+    Map
 }

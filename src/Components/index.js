@@ -9,3 +9,4 @@ export * from './TopView';
 export * from './TitleView';
 export * from './ItemRestaurant';
 export * from './RestaurantList'
+export * from './MapButton'

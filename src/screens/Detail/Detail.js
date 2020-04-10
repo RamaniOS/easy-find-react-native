@@ -11,17 +11,21 @@ import {
   SafeAreaView
 } from 'react-native'
 import styles from './DetailStyle'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Rating } from 'react-native-elements';
 import { Images } from '../../theme'
 import { Actions } from 'react-native-router-flux';
 import { ScrollView } from 'react-native-gesture-handler';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import { MapButton } from '../../components';
 
 class Detail extends Component {
 
   backButtonClicked() {
     Actions.pop()
+  }
+
+  mapButtonClicked() {
+    Actions.Map()
   }
 
   // Render UI objects 
@@ -67,6 +71,11 @@ class Detail extends Component {
                   }}
                 >
                 </MapView>
+                <View style={styles.directionButton}>
+                  <MapButton
+                    onPress={() => { this.mapButtonClicked() }}
+                  />
+                </View>
               </View>
               <View style={styles.infoRowStyle}>
                 <Text style={styles.mapAddressStyle}>11 Danum Rd</Text>
