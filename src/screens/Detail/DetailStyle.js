@@ -95,7 +95,7 @@ export default StyleSheet.create({
     directionButton: {
         position: 'absolute',
         justifyContent: 'center',
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.theme_color,
         zIndex: 1,
         height: 50,
         width: 50,

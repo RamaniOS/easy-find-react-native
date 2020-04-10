@@ -5,10 +5,13 @@ Map screen
 import React, { Component } from 'react'
 import {
   View,
+  TouchableOpacity,
+  Image
 } from 'react-native'
 import styles from './MapStyle'
 import { Actions } from 'react-native-router-flux';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import { BackButton } from '../../components';
 
 class Map extends Component {
 
@@ -21,6 +24,7 @@ class Map extends Component {
     return (
       <>
         <View style={styles.mainConatiner}>
+          <BackButton onPress={() => {this.backButtonClicked()}}/>
           <MapView
             provider={PROVIDER_GOOGLE} // remove if not using Google Maps
             style={styles.map}

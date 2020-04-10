@@ -16,7 +16,7 @@ import { Images } from '../../theme'
 import { Actions } from 'react-native-router-flux';
 import { ScrollView } from 'react-native-gesture-handler';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { MapButton } from '../../components';
+import { MapButton, BackButton } from '../../components';
 
 class Detail extends Component {
 
@@ -25,7 +25,7 @@ class Detail extends Component {
   }
 
   mapButtonClicked() {
-    Actions.Map()
+    this.props.navigation.navigate('Map')
   }
 
   // Render UI objects 
@@ -36,9 +36,7 @@ class Detail extends Component {
           <View style={styles.mainConatiner}>
             <View style={styles.topContainer}>
               <SafeAreaView></SafeAreaView>
-              <TouchableOpacity style={styles.backButton} onPress={() => { this.backButtonClicked() }}>
-                <Image source={Images.back} />
-              </TouchableOpacity>
+              <BackButton onPress={()=>{this.backButtonClicked()}}/>
             </View>
             <View style={styles.bottomContainer}>
               <View style={styles.infoRowStyle}>
