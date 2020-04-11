@@ -9,6 +9,7 @@ import { Rating } from 'react-native-elements';
 import RNSDWebImage from 'react-native-sdwebimage';
 
 const ItemRestaurant = ({ item, onPress }) => {
+
     var categories = ''
     item.categories.forEach(element => {
         if (categories.length > 0) {

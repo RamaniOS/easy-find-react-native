@@ -10,8 +10,7 @@ import { Actions } from 'react-native-router-flux';
 class RestaurantList extends Component {
 
     didSelectRow = (item) => {
-        //Actions.Detail()
-        this.props.navigation.navigate('Detail')
+        Actions.Detail()
     }
 
     render() {
@@ -20,7 +19,7 @@ class RestaurantList extends Component {
                 data={this.props.data}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => (
-                    <ItemRestaurant item={item} onPress={()=>this.props.didSelectRow()} />
+                    <ItemRestaurant item={item} onPress={() => this.didSelectRow()} />
                 )}
             />
         )
