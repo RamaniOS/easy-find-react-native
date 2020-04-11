@@ -39,6 +39,7 @@ const ItemRestaurant = ({ item, onPress }) => {
                         <Rating
                             readonly
                             type='star'
+                            startingValue={item.rating}
                             ratingCount={5}
                             imageSize={20}
                             style={styles.ratingStyle}
