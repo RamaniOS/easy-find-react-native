@@ -11,7 +11,7 @@ import {
 import styles from './MapStyle'
 import { Actions } from 'react-native-router-flux';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { BackButton } from '../../components';
+import { BackButton } from '../../Components';
 
 class Map extends Component {
 

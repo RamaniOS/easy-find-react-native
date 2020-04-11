@@ -12,7 +12,7 @@ import {
   FlatList
 } from 'react-native'
 import styles from './SearchStyle'
-import { Input, Button, TitleView, RestaurantList } from '../../components'
+import { Input, Button, TitleView, RestaurantList } from '../../Components'
 import { SearchBar } from 'react-native-elements';
 
 class Search extends Component {

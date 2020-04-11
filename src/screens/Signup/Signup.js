@@ -12,7 +12,7 @@ import {
   Image
 } from 'react-native'
 import styles from './SignupStyle'
-import { Input, Button } from '../../components'
+import { Input, Button } from '../../Components'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { password_regex, user_name_regex, name_regex } from '../../Utilis'
 import * as Constants from '../../Constants'

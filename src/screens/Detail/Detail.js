@@ -16,7 +16,7 @@ import { Images } from '../../theme'
 import { Actions } from 'react-native-router-flux';
 import { ScrollView } from 'react-native-gesture-handler';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { MapButton, BackButton } from '../../components';
+import { MapButton, BackButton } from '../../Components';
 
 class Detail extends Component {
 

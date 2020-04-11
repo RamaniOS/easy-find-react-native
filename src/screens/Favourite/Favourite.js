@@ -11,7 +11,7 @@ import {
   StatusBar
 } from 'react-native'
 import styles from './FavouriteStyle'
-import { Input, Button, TitleView, RestaurantList } from '../../components'
+import { Input, Button, TitleView, RestaurantList } from '../../Components'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { password_regex, user_name_regex } from '../../Utilis'
 import * as Constants from '../../Constants'
