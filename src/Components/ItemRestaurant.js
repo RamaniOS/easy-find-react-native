@@ -6,38 +6,54 @@ import React from 'react';
 import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import { Colors, Fonts, Images } from '../theme'
 import { Rating } from 'react-native-elements';
+import RNSDWebImage from 'react-native-sdwebimage';
 
 const ItemRestaurant = ({ item, onPress }) => {
+    var categories = ''
+    item.categories.forEach(element => {
+        if (categories.length > 0) {
+            categories = categories.concat(', ')
+        }
+        categories = categories.concat(element.title)
+    })
+
     return (
         <TouchableOpacity
-            onPress={()=>onPress(item)}
+            onPress={() => onPress(item)}
         >
-        <View style={styles.container}>
-            <Image style={styles.avatarStyle} />
-            <View style={styles.infoRowStyle}>
-                <View style={styles.topContainer}>
-                    <Text style={styles.nameStyle}>{item.c_name}</Text>
+            <View style={styles.container}>
+                <RNSDWebImage
+                    style={styles.avatarStyle}
+                    source={{
+                        uri: item.image_url,
+                        priority: RNSDWebImage.priority.high
+                    }}
+                    resizeMode="cover"
+                />
+                <View style={styles.infoRowStyle}>
+                    <View style={styles.topContainer}>
+                        <Text style={styles.nameStyle}>{item.name}</Text>
+                    </View>
+                    <View style={styles.ratingContainer}>
+                        <Rating
+                            readonly
+                            type='star'
+                            ratingCount={5}
+                            imageSize={20}
+                            style={styles.ratingStyle}
+                        />
+                        <Text style={styles.reviewStyle}>{item.review_count} Reviews</Text>
+                    </View>
+                    <Text style={styles.mealsStyle}>{categories}</Text>
+                    <Text style={styles.priceStyle}>{item.price}</Text>
+                    <Text style={styles.addressStyle}>{item.location.address1}, {item.location.city}</Text>
                 </View>
-                <View style={styles.ratingContainer}>
-                    <Rating
-                        readonly
-                        type='star'
-                        ratingCount={5}
-                        imageSize={20}
-                        style={styles.ratingStyle} 
-                    />
-                    <Text style={styles.reviewStyle}>2300 Reviews</Text>
+                <View style={styles.favStyle}>
+                    <TouchableOpacity>
+                        <Image source={item.isFav ? Images.fav : Images.un_fav} style={{ height: 26, width: 26 }}></Image>
+                    </TouchableOpacity>
                 </View>
-                <Text style={styles.mealsStyle}>Tea, sancks, meat</Text>
-                <Text style={styles.priceStyle}>$$$</Text>
-                <Text style={styles.addressStyle}>12 Danum Rd, Brampton</Text>
             </View>
-            <View style={styles.favStyle}>
-            <TouchableOpacity>
-                <Image source={item.isFav ? Images.fav :Images.un_fav} style={{height:26, width: 26}}></Image>
-                </TouchableOpacity>
-            </View>
-        </View>
         </TouchableOpacity>
     )
 };
@@ -48,12 +64,12 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderBottomWidth: 0.5,
         borderBottomColor: "#ccc",
-        paddingTop: 8,
-        paddingBottom: 8,
+        paddingTop: 10,
+        paddingBottom: 10,
         flexDirection: 'row',
     },
     avatarStyle: {
-        aspectRatio: 0.75,
+        width: '30%',
         overflow: 'hidden',
         backgroundColor: Colors.placeholder_color
     },
@@ -66,6 +82,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     topContainer: {
+        marginTop: 0,
         flexDirection: 'row',
     },
     nameStyle: {
@@ -103,7 +120,8 @@ const styles = StyleSheet.create({
         fontFamily: Fonts.font_light,
         fontSize: 14,
         color: Colors.black,
-        marginVertical: 2
+        marginVertical: 2,
+        marginBottom: 5
     }
 });
 
