@@ -17,8 +17,14 @@ import { Actions } from 'react-native-router-flux';
 import { ScrollView } from 'react-native-gesture-handler';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { MapButton, BackButton } from '../../components';
+import { Marker } from 'react-native-maps';
 
 class Detail extends Component {
+
+  constructor(props) {
+    super(props);
+    this.item = this.props.navigation.state.params.item;
+  }
 
   backButtonClicked() {
     Actions.pop()
@@ -30,18 +36,25 @@ class Detail extends Component {
 
   // Render UI objects 
   render() {
+    var categories = ''
+    this.item.categories.forEach(element => {
+      if (categories.length > 0) {
+        categories = categories.concat(', ')
+      }
+      categories = categories.concat(element.title)
+    })
     return (
       <>
         <ScrollView bounces={false}>
           <View style={styles.mainConatiner}>
             <View style={styles.topContainer}>
               <SafeAreaView></SafeAreaView>
-              <BackButton onPress={()=>{this.backButtonClicked()}}/>
+              <BackButton onPress={() => { this.backButtonClicked() }} />
             </View>
             <View style={styles.bottomContainer}>
               <View style={styles.infoRowStyle}>
                 <View style={styles.titleContainer}>
-                  <Text style={styles.nameStyle}>Banjara villa</Text>
+                  <Text style={styles.nameStyle}>{this.item.name}</Text>
                 </View>
                 <View style={styles.ratingContainer}>
                   <Rating
@@ -50,24 +63,34 @@ class Detail extends Component {
                     ratingCount={5}
                     imageSize={20}
                     style={styles.ratingStyle}
+                    startingValue={this.item.rating}
                   />
-                  <Text style={styles.reviewStyle}>2300 Reviews</Text>
+                  <Text style={styles.reviewStyle}>{this.item.review_count} Reviews</Text>
                 </View>
-                <Text style={styles.mealsStyle}>Tea, sancks, meat</Text>
-                <Text style={styles.priceStyle}>$$$</Text>
-                <Text style={styles.addressStyle}>12 Danum Rd, Brampton</Text>
+                <Text style={styles.mealsStyle}>{categories}</Text>
+                <Text style={styles.priceStyle}>{this.item.price}</Text>
+                <Text style={styles.addressStyle}>Open</Text>
               </View>
               <View style={styles.mapContainer}>
                 <MapView
                   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
                   style={styles.map}
                   region={{
-                    latitude: 37.78825,
-                    longitude: -122.4324,
-                    latitudeDelta: 0.015,
-                    longitudeDelta: 0.0121,
+                    latitude: this.item.coordinates.latitude,
+                    longitude: this.item.coordinates.longitude,
+                    latitudeDelta: 0.02,
+                    longitudeDelta: 0.015,
                   }}
                 >
+                  <MapView.Marker
+                    coordinate={{
+                      latitude: this.item.coordinates.latitude,
+                      longitude: this.item.coordinates.longitude
+                    }}
+                    title={this.item.name}
+                  />
+
+
                 </MapView>
                 <View style={styles.directionButton}>
                   <MapButton
@@ -76,9 +99,9 @@ class Detail extends Component {
                 </View>
               </View>
               <View style={styles.infoRowStyle}>
-                <Text style={styles.mapAddressStyle}>11 Danum Rd</Text>
-                <Text style={styles.mapAddressStyle}>Brampton</Text>
-                <Text style={styles.mapAddressStyle}>L6Y 3G5</Text>
+                <Text style={styles.mapAddressStyle}>{this.item.location.address1}</Text>
+                <Text style={styles.mapAddressStyle}>{this.item.location.city}</Text>
+                <Text style={styles.mapAddressStyle}>{this.item.location.zip_code}</Text>
               </View>
             </View>
           </View>

@@ -18,6 +18,11 @@ import { APIStore } from '../../Api'
 
 class Search extends Component {
 
+  constructor(props) {
+    super(props);
+    this.navigate = this.props.navigation.navigate;
+  }
+
   state = {
     data: [],
   }
@@ -53,8 +58,10 @@ class Search extends Component {
           <View style={styles.listContainer}>
             <RestaurantList
               data={this.state.data}
-              didSelectRow={() => {
-                this.props.navigation.navigate('Detail')
+              didSelectRow={(item) => {
+                this.navigate('Detail', {
+                  item: item
+                });
               }}
             />
           </View>

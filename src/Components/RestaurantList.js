@@ -9,17 +9,13 @@ import { Actions } from 'react-native-router-flux';
 
 class RestaurantList extends Component {
 
-    didSelectRow = (item) => {
-        Actions.Detail()
-    }
-
     render() {
         return (
             <FlatList
                 data={this.props.data}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => (
-                    <ItemRestaurant item={item} onPress={() => this.didSelectRow()} />
+                    <ItemRestaurant item={item} onPress={() => this.props.didSelectRow(item)} />
                 )}
             />
         )
