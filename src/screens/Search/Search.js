@@ -14,7 +14,7 @@ import {
 import styles from './SearchStyle'
 import { TitleView, RestaurantList } from '../../components'
 import { SearchBar } from 'react-native-elements';
-import { APIStore } from '../../Api'
+import { APIStore } from '../../api'
 
 class Search extends Component {
 
