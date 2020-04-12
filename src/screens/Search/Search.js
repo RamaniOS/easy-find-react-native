@@ -12,10 +12,36 @@ import {
   FlatList
 } from 'react-native'
 import styles from './SearchStyle'
-import { Input, Button, TitleView, RestaurantList } from '../../Components'
+import { TitleView, RestaurantList } from '../../Components'
 import { SearchBar } from 'react-native-elements';
+import { APIStore } from '../../Api'
 
 class Search extends Component {
+
+  constructor(props) {
+    super(props);
+    this.navigate = this.props.navigation.navigate;
+  }
+
+  state = {
+    data: [],
+  }
+
+  fetchList() {
+    let params = { 'location': 'toronto' }
+    APIStore.get('search', { params: params })
+      .then(response => {
+        this.setState({
+          data: response.data.businesses
+        });
+      }).catch(error => {
+        console.log(error);
+      });
+  }
+
+  componentDidMount = () => {
+    this.fetchList()
+  }
 
   // Render UI objects 
   render() {
@@ -30,7 +56,14 @@ class Search extends Component {
             placeholder={'Search'}
           />
           <View style={styles.listContainer}>
-            <RestaurantList/>
+            <RestaurantList
+              data={this.state.data}
+              didSelectRow={(item) => {
+                this.navigate('Detail', {
+                  item: item
+                });
+              }}
+            />
           </View>
         </View>
       </>

@@ -3,8 +3,7 @@ Style for Search screen
 */
 
 import { StyleSheet } from 'react-native'
-import { Fonts, Colors } from '../../theme'
-import { block } from 'react-native-reanimated'
+import { Colors } from '../../theme'
 
 export default StyleSheet.create({
     mainConatiner: {
@@ -34,6 +33,7 @@ export default StyleSheet.create({
     },
     listContainer: {
         flex: 1,
-        paddingBottom: 8
+        paddingBottom: 10,
+        zIndex: 0
     }
 })

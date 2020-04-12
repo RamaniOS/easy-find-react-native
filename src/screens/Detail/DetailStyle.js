@@ -2,8 +2,8 @@
 Style for Detail screen
 */
 
-import {StyleSheet} from 'react-native'
-import {Fonts, Colors} from '../../theme'
+import { StyleSheet } from 'react-native'
+import { Fonts, Colors } from '../../theme'
 
 
 export default StyleSheet.create({
@@ -12,14 +12,16 @@ export default StyleSheet.create({
     },
     topContainer: {
         height: 200,
-        backgroundColor: 'pink'
+        backgroundColor: 'pink',
+        zIndex: 1
     },
     backButton: {
         alignSelf: "flex-start",
-        top: '15%',
+        //top: '15%',
         left: 20,
         width: 50,
-        height: 50
+        height: 50,
+        zIndex: 1
     },
     bottomContainer: {
         flex: 1,
@@ -75,18 +77,18 @@ export default StyleSheet.create({
         marginVertical: 10,
         shadowColor: Colors.black,
         shadowOffset: {
-	        width: 0,
-	        height: 4,
+            width: 0,
+            height: 4,
         },
         shadowOpacity: 0.44,
         shadowRadius: 7,
         elevation: 8,
-      },
-      map: {
+    },
+    map: {
         zIndex: 0,
         ...StyleSheet.absoluteFillObject,
-      },
-      mapAddressStyle: {
+    },
+    mapAddressStyle: {
         fontFamily: Fonts.font_regular,
         fontSize: 16,
         color: Colors.black,
@@ -104,11 +106,11 @@ export default StyleSheet.create({
         right: 0,
         shadowColor: Colors.black,
         shadowOffset: {
-          width: 0,
-          height: 4,
+            width: 0,
+            height: 4,
         },
         shadowOpacity: 0.44,
         shadowRadius: 2,
         elevation: 2,
-      },
+    },
 })
