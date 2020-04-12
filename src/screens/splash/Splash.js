@@ -2,12 +2,12 @@
 Slpash screen
 */
 
-import React, {Component} from 'react';
-import {Images} from '../../theme';
-import {ScreenBG} from '../../Components';
-import {View, Text} from 'react-native';
+import React, { Component } from 'react';
+import { Images } from '../../theme';
+import { ScreenBG } from '../../components';
+import { View, Text } from 'react-native';
 import styles from './SplashStyle';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
 class Splash extends Component {
   componentDidMount() {

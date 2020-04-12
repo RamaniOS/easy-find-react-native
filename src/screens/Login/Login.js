@@ -2,7 +2,7 @@
 Login screen
 */
 
-import React, {Component, Fragment} from 'react';
+import React, { Component, Fragment } from 'react';
 import {
   View,
   Text,
@@ -11,11 +11,11 @@ import {
   StatusBar,
 } from 'react-native';
 import styles from './LoginStyle';
-import {Input, Button} from '../../Components';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {password_regex, user_name_regex} from '../../Utilis';
+import { Input, Button } from '../../components';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { password_regex, user_name_regex } from '../../Utilis';
 import * as Constants from '../../Constants';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
 class Login extends Component {
   // Constructor
@@ -49,7 +49,7 @@ class Login extends Component {
         <SafeAreaView style={styles.mainView}>
           <KeyboardAwareScrollView
             bounces={false}
-            style={{backgroundColor: 'transparent'}}>
+            style={{ backgroundColor: 'transparent' }}>
             <View style={styles.mainContainer}>
               <View style={styles.topContainer}>
                 <Text style={styles.title}>Sign In</Text>
@@ -61,12 +61,12 @@ class Login extends Component {
                   <Input
                     placeHolderText={'User name'}
                     value={this.state.userName}
-                    onChangeText={text => this.setState({userName: text})}
+                    onChangeText={text => this.setState({ userName: text })}
                   />
                   <Input
                     placeHolderText={'Password'}
                     isSecureEntry={true}
-                    onChangeText={text => this.setState({password: text})}
+                    onChangeText={text => this.setState({ password: text })}
                   />
                   <Button
                     title={'SIGN IN'}

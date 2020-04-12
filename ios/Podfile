@@ -36,10 +36,9 @@ target 'EasyFind' do
 
 
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-
   pod 'RNSDWebImage', :path => '../node_modules/react-native-sdwebimage'
-
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  
   target 'EasyFindTests' do
     inherit! :search_paths
     # Pods for testing

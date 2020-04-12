@@ -3,9 +3,9 @@ Router
 */
 
 import React from 'react';
-import {Scene, Router, Tabs} from 'react-native-router-flux';
-import {Images} from './theme/';
-import {TabIcon} from './Components';
+import { Scene, Router, Tabs } from 'react-native-router-flux';
+import { Images } from './theme/';
+import { TabIcon } from './components';
 
 import {
   Splash,
@@ -56,18 +56,18 @@ const RouterComponent = () => {
           swipeEnabled={false}
           gestureEnable={false}
           panHandlers={null}
-          tabBarStyle={{bottom: 10}}
+          tabBarStyle={{ bottom: 10 }}
           type="reset"
           key="tab">
           <Scene
             hideNavBar={true}
             key="search"
             component={Search}
-            icon={({focused}) => (
+            icon={({ focused }) => (
               <TabIcon
                 focused={focused}
                 title={'Search'}
-                ImgSize={{width: 25, height: 25}}
+                ImgSize={{ width: 25, height: 25 }}
                 activeImg={Images.home_tab}
                 defaultImg={Images.home_tab}
               />
@@ -77,11 +77,11 @@ const RouterComponent = () => {
             hideNavBar={true}
             key="favourite"
             component={Favourite}
-            icon={({focused}) => (
+            icon={({ focused }) => (
               <TabIcon
                 focused={focused}
                 title={'Favourite'}
-                ImgSize={{width: 25, height: 25}}
+                ImgSize={{ width: 25, height: 25 }}
                 activeImg={Images.fav_tab}
                 defaultImg={Images.fav_tab}
               />
@@ -91,11 +91,11 @@ const RouterComponent = () => {
             hideNavBar={true}
             key="settings"
             component={Settings}
-            icon={({focused}) => (
+            icon={({ focused }) => (
               <TabIcon
                 focused={focused}
                 title={'Settings'}
-                ImgSize={{width: 25, height: 25}}
+                ImgSize={{ width: 25, height: 25 }}
                 activeImg={Images.settings_tab}
                 defaultImg={Images.settings_tab}
               />

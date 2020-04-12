@@ -13,7 +13,7 @@ import { Rating } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 import { ScrollView } from 'react-native-gesture-handler';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { MapButton, BackButton } from '../../Components';
+import { MapButton, BackButton } from '../../components';
 
 class Detail extends Component {
 

@@ -12,7 +12,7 @@ import {
   FlatList
 } from 'react-native'
 import styles from './SearchStyle'
-import { TitleView, RestaurantList } from '../../Components'
+import { TitleView, RestaurantList } from '../../components'
 import { SearchBar } from 'react-native-elements';
 import { APIStore } from '../../Api'
 

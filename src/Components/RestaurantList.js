@@ -4,7 +4,7 @@ Class to manage Restaurant List
 
 import React, { Component } from 'react'
 import { FlatList } from 'react-native';
-import { ItemRestaurant } from '../Components'
+import { ItemRestaurant } from '../components'
 
 class RestaurantList extends Component {
 
