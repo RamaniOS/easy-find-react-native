@@ -1,5 +1,5 @@
 /*
-Export Components
+Export components
 */
 export * from './ScreenBG';
 export * from './Input';

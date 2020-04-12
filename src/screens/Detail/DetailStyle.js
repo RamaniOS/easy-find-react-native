@@ -64,11 +64,11 @@ export default StyleSheet.create({
         color: Colors.black,
         marginVertical: 2
     },
-    addressStyle: {
-        fontFamily: Fonts.font_light,
-        fontSize: 14,
+    openStyle: {
+        fontFamily: Fonts.font_bold,
+        fontSize: 20,
         color: Colors.black,
-        marginVertical: 2
+        marginVertical: 4
     },
     mapContainer: {
         height: 150,

@@ -29,7 +29,7 @@ class Search extends Component {
 
   fetchList() {
     let params = { 'location': 'toronto' }
-    APIStore.get('search', { params: params })
+    APIStore.get('businesses/search', { params: params })
       .then(response => {
         this.setState({
           data: response.data.businesses

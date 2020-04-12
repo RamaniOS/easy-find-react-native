@@ -14,12 +14,32 @@ import { Actions } from 'react-native-router-flux';
 import { ScrollView } from 'react-native-gesture-handler';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { MapButton, BackButton } from '../../components';
+import { APIStore } from '../../api'
 
 class Detail extends Component {
+
+  state = {
+    images: [],
+    is_closed: false
+  }
 
   constructor(props) {
     super(props);
     this.item = this.props.navigation.state.params.item;
+  }
+
+  fetchDetail() {
+    APIStore.get('businesses/' + this.item.id)
+      .then(response => {
+        this.setState({ images: response.photos })
+        this.setState({ is_closed: response.is_closed })
+      }).catch(error => {
+        console.log(error);
+      });
+  }
+
+  componentDidMount() {
+    this.fetchDetail()
   }
 
   backButtonClicked() {
@@ -65,7 +85,9 @@ class Detail extends Component {
                 </View>
                 <Text style={styles.mealsStyle}>{categories}</Text>
                 <Text style={styles.priceStyle}>{this.item.price}</Text>
-                <Text style={styles.addressStyle}>Open</Text>
+                <Text style={[styles.openStyle, { color: this.state.is_closed ? 'red' : 'black' }]}>
+                  {this.state.is_closed ? 'Closed' : 'Open'}
+                </Text>
               </View>
               <View style={styles.mapContainer}>
                 <MapView
