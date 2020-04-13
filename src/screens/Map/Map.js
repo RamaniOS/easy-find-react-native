@@ -24,7 +24,7 @@ class Map extends Component {
     return (
       <>
         <View style={styles.mainConatiner}>
-          <BackButton onPress={() => { this.backButtonClicked() }} />
+          <BackButton topMargin={'5%'} onPress={() => { this.backButtonClicked() }} />
           <MapView
             provider={PROVIDER_GOOGLE} // remove if not using Google Maps
             style={styles.map}

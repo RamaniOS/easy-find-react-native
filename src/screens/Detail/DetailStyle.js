@@ -11,17 +11,12 @@ export default StyleSheet.create({
         flex: 1,
     },
     topContainer: {
-        height: 200,
-        backgroundColor: 'pink',
-        zIndex: 1
+        height: 220,
     },
-    backButton: {
-        alignSelf: "flex-start",
-        //top: '15%',
-        left: 20,
-        width: 50,
-        height: 50,
-        zIndex: 1
+    listContainer: {
+        height: 220,
+        zIndex: 0,
+        backgroundColor: Colors.theme_color
     },
     bottomContainer: {
         flex: 1,

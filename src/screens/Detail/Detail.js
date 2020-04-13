@@ -6,14 +6,16 @@ import React, { Component } from 'react'
 import {
   View,
   Text,
-  SafeAreaView
+  SafeAreaView,
+  Dimensions,
+  StatusBar
 } from 'react-native'
 import styles from './DetailStyle'
 import { Rating } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 import { ScrollView } from 'react-native-gesture-handler';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { MapButton, BackButton } from '../../components';
+import { MapButton, BackButton, PhotosList } from '../../components';
 import { APIStore } from '../../api'
 
 class Detail extends Component {
@@ -31,8 +33,8 @@ class Detail extends Component {
   fetchDetail() {
     APIStore.get('businesses/' + this.item.id)
       .then(response => {
-        this.setState({ images: response.photos })
-        this.setState({ is_closed: response.is_closed })
+        this.setState({ images: response.data.photos })
+        this.setState({ is_closed: response.data.is_closed })
       }).catch(error => {
         console.log(error);
       });
@@ -61,11 +63,17 @@ class Detail extends Component {
     })
     return (
       <>
+        <StatusBar barStyle="light-content" />
         <ScrollView bounces={false}>
           <View style={styles.mainConatiner}>
             <View style={styles.topContainer}>
-              <SafeAreaView></SafeAreaView>
-              <BackButton onPress={() => { this.backButtonClicked() }} />
+              <View style={styles.listContainer}>
+                <PhotosList
+                  style={{ zIndex: 0 }}
+                  data={this.state.images}
+                />
+              </View>
+              <BackButton topMargin={'20%'} onPress={() => { this.backButtonClicked() }} />
             </View>
             <View style={styles.bottomContainer}>
               <View style={styles.infoRowStyle}>
@@ -107,8 +115,6 @@ class Detail extends Component {
                     }}
                     title={this.item.name}
                   />
-
-
                 </MapView>
                 <View style={styles.directionButton}>
                   <MapButton

@@ -3,12 +3,12 @@ This class for Back Button
 */
 
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import { Images, Colors } from '../theme/'
 
-const BackButton = ({ onPress }) => {
+const BackButton = ({ topMargin, onPress }) => {
   return (
-    <TouchableOpacity style={[styles.buttonStyle]} onPress={onPress}>
+    <TouchableOpacity style={[styles.buttonStyle, { top: topMargin }]} onPress={onPress}>
       <Image source={Images.back} />
     </TouchableOpacity>
   );
@@ -16,11 +16,11 @@ const BackButton = ({ onPress }) => {
 
 const styles = StyleSheet.create({
   buttonStyle: {
+    position: 'absolute',
     zIndex: 1,
     alignItems: 'center',
     alignSelf: "flex-start",
     justifyContent: 'center',
-    top: '10%',
     marginHorizontal: 20,
     width: 50,
     height: 50,

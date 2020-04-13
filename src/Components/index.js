@@ -11,3 +11,5 @@ export * from './ItemRestaurant';
 export * from './RestaurantList'
 export * from './MapButton'
 export * from './BackButton'
+export * from './PhotosList'
+export * from './ItemPhoto'
