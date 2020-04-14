@@ -16,6 +16,9 @@ class RestaurantList extends Component {
                 renderItem={({ item }) => (
                     <ItemRestaurant item={item} onPress={() => this.props.didSelectRow(item)} />
                 )}
+                ListFooterComponent={this.props.listFooter}
+                onEndReachedThreshold={0.1}
+                onEndReached={this.props.onEndReached}
             />
         )
     }
