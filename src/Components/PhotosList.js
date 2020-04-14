@@ -15,7 +15,7 @@ class PhotosList extends Component {
                 key: 0
             };
             items.image = item
-            items.key = index
+            items.key = index.toString()
             photos.push(items)
         })
 

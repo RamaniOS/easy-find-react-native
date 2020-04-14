@@ -5,11 +5,7 @@ Search screen
 import React, { Component, Fragment } from 'react'
 import {
   View,
-  Text,
-  TouchableOpacity,
   SafeAreaView,
-  StatusBar,
-  FlatList
 } from 'react-native'
 import styles from './SearchStyle'
 import { TitleView, RestaurantList } from '../../components'
@@ -25,10 +21,29 @@ class Search extends Component {
 
   state = {
     data: [],
+    search: ''
   }
 
-  fetchList() {
-    let params = { 'location': 'toronto' }
+  updateSearch = (text) => {
+    this.setState({ search: text });
+  };
+
+  searchButtonClicked = () => {
+    this.fetchItems()
+  }
+
+  onClearButtonClicked = () => {
+    setTimeout(() => {
+      this.fetchItems()
+    }, 500);
+  }
+
+  fetchItems = () => {
+    this.fetchList(this.state.search == '' ? 'Toronto' : this.state.search)
+  }
+
+  fetchList(location = 'Toronto') {
+    let params = { 'location': location }
     APIStore.get('businesses/search', { params: params })
       .then(response => {
         this.setState({
@@ -51,9 +66,17 @@ class Search extends Component {
         <View style={styles.mainConatiner}>
           <TitleView title={'Search'}></TitleView>
           <SearchBar
+            color='red'
+            keyboardType="default"
+            returnKeyType="done"
+            autoCorrect={false}
             containerStyle={styles.searchBarContainer}
             inputContainerStyle={styles.inputContainerStyle}
             placeholder={'Search'}
+            onChangeText={this.updateSearch}
+            value={this.state.search}
+            onSubmitEditing={this.searchButtonClicked}
+            onClear={this.onClearButtonClicked}
           />
           <View style={styles.listContainer}>
             <RestaurantList
