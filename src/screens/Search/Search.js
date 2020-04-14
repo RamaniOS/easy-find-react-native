@@ -66,7 +66,6 @@ class Search extends Component {
         <View style={styles.mainConatiner}>
           <TitleView title={'Search'}></TitleView>
           <SearchBar
-            color='red'
             keyboardType="default"
             returnKeyType="done"
             autoCorrect={false}
