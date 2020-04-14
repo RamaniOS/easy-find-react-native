@@ -30,7 +30,7 @@ class Search extends Component {
     data: [],
     search: '',
     error: '',
-    isPagesAvailable: false
+    isPagesAvailable: false,
   }
 
   // Life cycle

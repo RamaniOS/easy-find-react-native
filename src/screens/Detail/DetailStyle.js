@@ -77,7 +77,7 @@ export default StyleSheet.create({
         },
         shadowOpacity: 0.44,
         shadowRadius: 7,
-        elevation: 8,
+        elevation: 16,
     },
     map: {
         zIndex: 0,
@@ -106,6 +106,6 @@ export default StyleSheet.create({
         },
         shadowOpacity: 0.44,
         shadowRadius: 2,
-        elevation: 2,
+        elevation: 8,
     },
 })
