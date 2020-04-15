@@ -18,6 +18,8 @@ import { password_regex, user_name_regex, name_regex } from '../../Utilis'
 import * as Constants from '../../Constants'
 import { Images } from '../../theme'
 import { Actions } from 'react-native-router-flux'
+import { saveUser, isUserExist } from '../../database/allSchemas'
+import { saveToAsyncStorage } from '../../Utilis';
 
 class Signup extends Component {
 
@@ -43,7 +45,33 @@ class Signup extends Component {
     } else if (this.state.password != this.state.confirmPassword) {
       alert(Constants.VALID_MISMATCH_PASSWORD)
     } else {
-      alert('success!!')
+      let userName = this.state.userName.trim()
+      let password = this.state.password.trim()
+      // check user name is already taken or not
+      isUserExist(userName).then((isExist, user) => {
+        if (isExist) {
+          alert(Constants.ERROR_USERNAME)
+          return
+        } else {
+          // create instance of user
+          const user = {
+            id: Math.floor(Date.now() / 1000),
+            userName: userName,
+            fullName: this.state.fullName,
+            password: password
+          }
+          // save user details in the database
+          saveUser(user).then(() => {
+            // save login session in local storage
+            saveToAsyncStorage(Constants.IS_LOGIN, JSON.stringify(true)).then(() => { })
+            Actions.tab()
+          }).catch((error) => {
+            alert(`Insert user error ${error}`)
+          })
+        }
+      }).catch(() => {
+        alert(Constants.ERROR_LOG)
+      })
     }
   }
 

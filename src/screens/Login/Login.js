@@ -13,9 +13,11 @@ import {
 import styles from './LoginStyle';
 import { Input, Button } from '../../components';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { password_regex, user_name_regex } from '../../Utilis';
 import * as Constants from '../../Constants';
 import { Actions } from 'react-native-router-flux';
+import { checkUserAuth } from '../../database/allSchemas'
+import { saveToAsyncStorage } from '../../Utilis';
+
 
 class Login extends Component {
   // Constructor
@@ -29,14 +31,30 @@ class Login extends Component {
 
   // Actions
   loginButtonClicked() {
-    Actions.tab();
-    return;
-    if (!user_name_regex.test(this.state.userName)) {
+    if (this.state.userName.trim().length == 0) {
       alert(Constants.ERROR_INVALID_USER_NAME);
-    } else if (!password_regex.test(this.state.password)) {
-      alert(Constants.VALID_PASSWORD);
+    } else if (this.state.password.trim().length == 0) {
+      alert(Constants.ERROR_PASSWORD);
     } else {
-      alert('success!!');
+      let userName = this.state.userName.trim()
+      let password = this.state.password.trim()
+      // create instance of user
+      const user = {
+        userName: userName,
+        password: password
+      }
+      // check login auth here
+      checkUserAuth(user).then((fetchUser) => {
+        if (fetchUser) {
+          // save login session in local storage
+          saveToAsyncStorage(Constants.IS_LOGIN, JSON.stringify(true)).then(() => { })
+          Actions.tab()
+        } else {
+          alert(Constants.ERROR_LOGIN)
+        }
+      }).catch((error) => {
+        alert(Constants.ERROR_LOG)
+      })
     }
   }
 

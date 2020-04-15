@@ -8,14 +8,26 @@ import { ScreenBG } from '../../components';
 import { View, Text } from 'react-native';
 import styles from './SplashStyle';
 import { Actions } from 'react-native-router-flux';
+import { getAsyncStorage, saveToAsyncStorage } from '../../Utilis';
+import * as Constants from '../../Constants';
 
 class Splash extends Component {
+
+  // Life cycle
   componentDidMount() {
     setTimeout(() => {
-      Actions.Login();
+      getAsyncStorage(Constants.IS_LOGIN).then(isLogin => {
+        if (isLogin !== null && isLogin) {
+          // if already login
+          Actions.tab()
+        } else {
+          Actions.Login();
+        }
+      })
     }, 2000);
   }
 
+  // rendering UI objects
   render() {
     return (
       <View style={styles.splashScreen}>
