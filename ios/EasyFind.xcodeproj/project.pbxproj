@@ -63,12 +63,12 @@
 		329E2FE45181950577E2597B /* Pods-EasyFindTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFindTests.release.xcconfig"; path = "Target Support Files/Pods-EasyFindTests/Pods-EasyFindTests.release.xcconfig"; sourceTree = "<group>"; };
 		4541BA9A5F86B69A6C72284C /* Pods-EasyFind-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFind-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-EasyFind-tvOS/Pods-EasyFind-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4BD932ACFEC59FC8E13F5D81 /* Pods-EasyFind-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFind-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-EasyFind-tvOSTests/Pods-EasyFind-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		92945545795C45A4BCBA1090 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Light.ttf"; path = "../assets/fonts/Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		92945545795C45A4BCBA1090 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Light.ttf"; path = "../assets/fonts/Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		A992D2549C50AC4BB4D32E19 /* libPods-EasyFind-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EasyFind-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB25C8CD99504A8138D68645 /* Pods-EasyFind.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFind.debug.xcconfig"; path = "Target Support Files/Pods-EasyFind/Pods-EasyFind.debug.xcconfig"; sourceTree = "<group>"; };
-		BFA7798DDBAA4F2988FEDB2F /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Regular.ttf"; path = "../assets/fonts/Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		BFA7798DDBAA4F2988FEDB2F /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Regular.ttf"; path = "../assets/fonts/Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 		C1347368275C7C22C3CD6B1A /* libPods-EasyFind.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EasyFind.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC26439AA8B54E38930BDC05 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Bold.ttf"; path = "../assets/fonts/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		CC26439AA8B54E38930BDC05 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Bold.ttf"; path = "../assets/fonts/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		E347AD78992906CEB5570E69 /* Pods-EasyFindTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFindTests.debug.xcconfig"; path = "Target Support Files/Pods-EasyFindTests/Pods-EasyFindTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB9229B77823A96EA620A2F6 /* Pods-EasyFind-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFind-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EasyFind-tvOSTests/Pods-EasyFind-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -178,7 +178,6 @@
 				BFA7798DDBAA4F2988FEDB2F /* Quicksand-Regular.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
