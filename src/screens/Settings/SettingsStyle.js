@@ -67,12 +67,12 @@ export default StyleSheet.create({
     infoTitle: {
         margin: 20,
         fontFamily: Fonts.font_bold,
-        fontSize: 22,
+        fontSize: 18,
         color: Colors.black,
     },
     infoStyle: {
         marginHorizontal: 20,
         fontFamily: Fonts.font_regular,
-        fontSize: 22,
+        fontSize: 18,
     }
 })
