@@ -25,6 +25,7 @@ export const RestaurantSchema = {
     name: RESTAURANT_SCHEMA,
     primarykey: 'id',
     properties: {
+        id: 'string', // primary key
         jsonValue: { type: 'string', optional: true },
     }
 }
@@ -48,7 +49,7 @@ export const saveUser = user => new Promise((resolve, reject) => {
 })
 
 // Create method to check user name is exist or not (Tupple)
-export const isUserExist = (userName) => new Promise((resolve, reject) => {
+export const isUserExist = userName => new Promise((resolve, reject) => {
     Realm.open(databaseOptions).then(realm => {
         let allUsers = realm.objects(USER_SCHEMA)
         let filterUser = allUsers.filtered('userName == $0', userName)
@@ -79,6 +80,19 @@ export const saveRestaurant = json => new Promise((resolve, reject) => {
     }).catch((error) => reject(error))
 })
 
+// Create method to check Restaurant is exist or not
+export const isRestaurantExist = id => new Promise((resolve, reject) => {
+    Realm.open(databaseOptions).then(realm => {
+        let restaurants = realm.objects(RESTAURANT_SCHEMA)
+        let filterRestaurant = restaurants.filtered('id == $0', id)
+        if (filterRestaurant !== null && filterRestaurant.length > 0) {
+            resolve(true)
+        } else {
+            resolve(false)
+        }
+    }).catch((error) => reject(error))
+})
+
 // Delete Restaurant
 export const deleteRestaurant = id => new Promise((resolve, reject) => {
     Realm.open(databaseOptions).then(realm => {
@@ -91,7 +105,7 @@ export const deleteRestaurant = id => new Promise((resolve, reject) => {
 })
 
 // Fetch Restaurant
-export const fetchRestaurants = restaurants => new Promise((resolve, reject) => {
+export const fetchRestaurants = () => new Promise((resolve, reject) => {
     Realm.open(databaseOptions).then(realm => {
         let restaurants = realm.objects(RESTAURANT_SCHEMA)
         resolve(restaurants)

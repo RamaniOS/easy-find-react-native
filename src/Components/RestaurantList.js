@@ -5,7 +5,7 @@ Class to manage Restaurant List
 import React, { Component } from 'react'
 import { FlatList } from 'react-native';
 import { ItemRestaurant } from '../components'
-import { saveRestaurant } from '../database/allSchemas'
+import { saveRestaurant, isRestaurantExist } from '../database/allSchemas'
 import * as Constants from '../Constants'
 
 class RestaurantList extends Component {
@@ -14,16 +14,22 @@ class RestaurantList extends Component {
     favButtonClicked = item => new Promise((resolve, reject) => {
         // creating instance
         let json = {
+            id: item.id,
             jsonValue: JSON.stringify(item)
         }
-        // saving..
-        saveRestaurant(json).then(() => {
-            alert(Constants.SAVED_RESTA)
-            resolve()
-        }).catch(() => {
-            alert(Constants.ERROR_LOG)
-            reject()
-        })
+        // checking restaurant already exist or not
+        isRestaurantExist(item.id).then((isExist) => {
+            // saving..
+            if (!isExist) {
+                saveRestaurant(json).then(() => {
+                    alert(Constants.SAVED_RESTA)
+                    resolve()
+                }).catch(() => {
+                    alert(Constants.ERROR_LOG)
+                    reject()
+                })
+            }
+        }).catch(() => { })
     })
 
     // rendering UI elements
