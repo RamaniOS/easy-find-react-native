@@ -8,7 +8,7 @@ import { Colors, Fonts, Images } from '../theme'
 import { Rating } from 'react-native-elements';
 import RNSDWebImage from 'react-native-sdwebimage';
 
-const ItemRestaurant = ({ item, onPress }) => {
+const ItemRestaurant = ({ item, onPress, onFavPress }) => {
 
     var categories = ''
     item.categories.forEach(element => {
@@ -51,8 +51,14 @@ const ItemRestaurant = ({ item, onPress }) => {
                     <Text style={styles.addressStyle}>{item.location.address1}, {item.location.city}</Text>
                 </View>
                 <View style={styles.favStyle}>
-                    <TouchableOpacity>
-                        <Image source={item.isFav ? Images.fav : Images.un_fav} style={{ height: 26, width: 26 }}></Image>
+                    <TouchableOpacity
+                        onPress={() =>
+                            onFavPress(item).then(() => {
+                            }).catch(() => {
+                            })
+                        }
+                    >
+                        <Image source={Images.fav} style={{ height: 26, width: 26 }}></Image>
                     </TouchableOpacity>
                 </View>
             </View>

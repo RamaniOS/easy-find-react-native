@@ -40,9 +40,11 @@ class Signup extends Component {
       alert(Constants.ERROR_INVALID_USER_NAME)
     } else if (!name_regex.test(this.state.fullName)) {
       alert(Constants.ERROR_INVALID_NAME)
-    } else if (!password_regex.test(this.state.password)) {
-      alert(Constants.VALID_PASSWORD)
-    } else if (this.state.password != this.state.confirmPassword) {
+    }
+    // else if (!password_regex.test(this.state.password)) {
+    //   alert(Constants.VALID_PASSWORD)
+    // } 
+    else if (this.state.password != this.state.confirmPassword) {
       alert(Constants.VALID_MISMATCH_PASSWORD)
     } else {
       let userName = this.state.userName.trim()

@@ -6,6 +6,7 @@ import Realm from 'realm'
 
 // All SCHEMAS
 export const USER_SCHEMA = 'User'
+export const RESTAURANT_SCHEMA = 'Restaurant'
 
 // SCHEMA for user
 export const UserSchema = {
@@ -19,10 +20,20 @@ export const UserSchema = {
     }
 }
 
+// SCHEMA for Restaurant
+export const RestaurantSchema = {
+    name: RESTAURANT_SCHEMA,
+    primarykey: 'id',
+    properties: {
+        jsonValue: { type: 'string', optional: true },
+    }
+}
+
+
 // Database options
 const databaseOptions = {
     path: 'EasyFind.realm',
-    schema: [UserSchema],
+    schema: [UserSchema, RestaurantSchema],
     schemaVersion: 0
 }
 
@@ -31,7 +42,7 @@ export const saveUser = user => new Promise((resolve, reject) => {
     Realm.open(databaseOptions).then(realm => {
         realm.write(() => {
             realm.create(USER_SCHEMA, user)
-            resolve(user)
+            resolve()
         })
     }).catch((error) => reject(error))
 })
@@ -55,6 +66,35 @@ export const checkUserAuth = user => new Promise((resolve, reject) => {
         let allUsers = realm.objects(USER_SCHEMA)
         let filterUser = allUsers.filtered('userName == $0', user.userName).filtered('password == $0', user.password)
         resolve(filterUser[0]) // we know only one index of array exists 
+    }).catch((error) => reject(error))
+})
+
+// For Saving Restaurant
+export const saveRestaurant = json => new Promise((resolve, reject) => {
+    Realm.open(databaseOptions).then(realm => {
+        realm.write(() => {
+            realm.create(RESTAURANT_SCHEMA, json)
+            resolve()
+        })
+    }).catch((error) => reject(error))
+})
+
+// Delete Restaurant
+export const deleteRestaurant = id => new Promise((resolve, reject) => {
+    Realm.open(databaseOptions).then(realm => {
+        realm.write(() => {
+            let restaurant = realm.objectForPrimaryKey(RESTAURANT_SCHEMA, id)
+            realm.delete(restaurant)
+            resolve()
+        })
+    }).catch((error) => reject(error))
+})
+
+// Fetch Restaurant
+export const fetchRestaurants = restaurants => new Promise((resolve, reject) => {
+    Realm.open(databaseOptions).then(realm => {
+        let restaurants = realm.objects(RESTAURANT_SCHEMA)
+        resolve(restaurants)
     }).catch((error) => reject(error))
 })
 

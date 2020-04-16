@@ -11,6 +11,7 @@ export const ERROR_PASSWORD = 'Please enter your password';
 export const ERROR_LOGIN = 'Invalid Username / Password combination';
 export const ERROR_LOG = 'Something went wrong';
 export const ERROR_USERNAME = 'This username is already taken.Please try another one';
+export const SAVED_RESTA = 'Restaurant saved successfully';
 
 /************************************** Storage Keys ****************************************************/
 
