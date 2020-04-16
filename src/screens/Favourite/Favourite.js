@@ -6,6 +6,7 @@ import React, { Component, Fragment } from 'react'
 import {
   View,
   SafeAreaView,
+  StatusBar,
 } from 'react-native'
 import styles from './FavouriteStyle'
 import { TitleView, RestaurantList } from '../../components'
@@ -45,6 +46,7 @@ class Favourite extends Component {
   render() {
     return (
       <>
+        <StatusBar barStyle='dark-content' />
         <SafeAreaView></SafeAreaView>
         <View style={styles.mainConatiner}>
           <TitleView title={'Favourite'}></TitleView>

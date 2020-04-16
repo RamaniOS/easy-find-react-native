@@ -7,6 +7,7 @@ import {
   View,
   SafeAreaView,
   ActivityIndicator,
+  StatusBar,
 } from 'react-native'
 import styles from './SearchStyle'
 import { TitleView, RestaurantList } from '../../components'
@@ -102,6 +103,7 @@ class Search extends Component {
     }
     return (
       <>
+        <StatusBar barStyle='dark-content' />
         <SafeAreaView></SafeAreaView>
         <View style={styles.mainConatiner}>
           <TitleView title={'Search'}></TitleView>

@@ -63,7 +63,7 @@ class Detail extends Component {
     })
     return (
       <>
-        <StatusBar barStyle="light-content" />
+        <StatusBar barStyle='light-content' />
         <ScrollView bounces={false}>
           <View style={styles.mainConatiner}>
             <View style={styles.topContainer}>

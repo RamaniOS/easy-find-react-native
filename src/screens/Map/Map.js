@@ -6,7 +6,8 @@ import React, { Component } from 'react'
 import {
   View,
   TouchableOpacity,
-  Image
+  Image,
+  StatusBar
 } from 'react-native'
 import styles from './MapStyle'
 import { Actions } from 'react-native-router-flux';
@@ -23,6 +24,7 @@ class Map extends Component {
   render() {
     return (
       <>
+        <StatusBar barStyle='dark-content' />
         <View style={styles.mainConatiner}>
           <BackButton topMargin={'5%'} onPress={() => { this.backButtonClicked() }} />
           <MapView
