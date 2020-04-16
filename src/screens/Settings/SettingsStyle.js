@@ -2,8 +2,8 @@
 Style for Settings screen
 */
 
-import {StyleSheet} from 'react-native'
-import {Fonts, Colors} from '../../theme'
+import { StyleSheet } from 'react-native'
+import { Fonts, Colors } from '../../theme'
 
 export default StyleSheet.create({
     safeTop: {
@@ -11,15 +11,22 @@ export default StyleSheet.create({
         backgroundColor: Colors.theme_color
     },
     mainView: {
-        flex: 1
+        flex: 1,
     },
-    topView: {
-        height: '100%',
+    mainContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        paddingBottom: 20
+    },
+    topContainer: {
         backgroundColor: Colors.theme_color,
+    },
+    bottomContainer: {
+        height: 300
     },
     title: {
         position: "relative",
-        top: '15%',
+        marginVertical: 20,
         fontFamily: Fonts.font_bold,
         fontSize: 30,
         alignSelf: "center",
@@ -27,39 +34,45 @@ export default StyleSheet.create({
     },
     accountTitle: {
         fontFamily: Fonts.font_regular,
-        bottom: 120,
+        marginVertical: '20%',
         fontSize: 22,
         alignSelf: "center",
         color: Colors.white,
     },
+    bottomColor: {
+        marginVertical: 0,
+        height: 130,
+        width: '100%',
+        backgroundColor: Colors.theme_color,
+        zIndex: 0
+    },
     bottomView: {
-        alignSelf:'center',
-        height: 227,
-        top: -80,
+        position: 'absolute',
+        alignSelf: 'center',
+        height: 290,
+        marginVertical: 0,
         width: '90%',
         backgroundColor: Colors.white,
         borderRadius: 10,
         shadowColor: Colors.black,
         shadowOffset: {
-	        width: 0,
-	        height: 8,
+            width: 0,
+            height: 8,
         },
         shadowOpacity: 0.44,
         shadowRadius: 10.32,
         elevation: 16,
+        zIndex: 1
     },
-    signupContainer: {
-        alignSelf: "center"
-    },
-    signupStyle: {
+    infoTitle: {
+        margin: 20,
         fontFamily: Fonts.font_bold,
-        fontSize: 18,
-        color: Colors.black
-    },
-    signup: {
-        fontFamily: Fonts.font_regular,
-        fontSize: 20,
+        fontSize: 22,
         color: Colors.black,
-        textDecorationLine: 'underline'
+    },
+    infoStyle: {
+        marginHorizontal: 20,
+        fontFamily: Fonts.font_regular,
+        fontSize: 22,
     }
 })

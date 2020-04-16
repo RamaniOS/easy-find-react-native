@@ -47,6 +47,7 @@ class Login extends Component {
       checkUserAuth(user).then((fetchUser) => {
         if (fetchUser) {
           // save login session in local storage
+          saveToAsyncStorage(Constants.USER_NAME, fetchUser.userName).then(() => { })
           saveToAsyncStorage(Constants.IS_LOGIN, JSON.stringify(true)).then(() => { })
           Actions.tab()
         } else {

@@ -16,3 +16,4 @@ export const SAVED_RESTA = 'Restaurant saved successfully';
 /************************************** Storage Keys ****************************************************/
 
 export const IS_LOGIN = 'isLogin';
+export const USER_NAME = 'userName';

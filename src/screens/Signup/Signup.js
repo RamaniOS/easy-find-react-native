@@ -50,8 +50,8 @@ class Signup extends Component {
       let userName = this.state.userName.trim()
       let password = this.state.password.trim()
       // check user name is already taken or not
-      isUserExist(userName).then((isExist, user) => {
-        if (isExist) {
+      isUserExist(userName).then((user) => {
+        if (user !== null) {
           alert(Constants.ERROR_USERNAME)
           return
         } else {
@@ -65,6 +65,7 @@ class Signup extends Component {
           // save user details in the database
           saveUser(user).then(() => {
             // save login session in local storage
+            saveToAsyncStorage(Constants.USER_NAME, userName).then(() => { })
             saveToAsyncStorage(Constants.IS_LOGIN, JSON.stringify(true)).then(() => { })
             Actions.tab()
           }).catch((error) => {

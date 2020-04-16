@@ -53,9 +53,9 @@ export const isUserExist = (userName) => new Promise((resolve, reject) => {
         let allUsers = realm.objects(USER_SCHEMA)
         let filterUser = allUsers.filtered('userName == $0', userName)
         if (filterUser !== null && filterUser.length > 0) {
-            resolve(true, filterUser[0])
+            resolve(filterUser[0])
         } else {
-            resolve(false, null)
+            resolve(null)
         }
     }).catch((error) => reject(error))
 })

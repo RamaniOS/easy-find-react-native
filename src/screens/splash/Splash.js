@@ -8,7 +8,7 @@ import { ScreenBG } from '../../components';
 import { View, Text } from 'react-native';
 import styles from './SplashStyle';
 import { Actions } from 'react-native-router-flux';
-import { getAsyncStorage, saveToAsyncStorage } from '../../Utilis';
+import { getAsyncStorage } from '../../Utilis';
 import * as Constants from '../../Constants';
 
 class Splash extends Component {
