@@ -81,7 +81,7 @@ class Search extends Component {
     if (!this.state.loading) return null;
     return (
       <ActivityIndicator
-        style={{ color: Colors.theme_color }}
+        style={{ color: Colors.theme_color, height: 45 }}
       />
     );
   };
