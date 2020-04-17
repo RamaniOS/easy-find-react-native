@@ -12,6 +12,7 @@ import styles from './FavouriteStyle'
 import { TitleView, RestaurantList } from '../../components'
 import * as Constants from '../../Constants'
 import { fetchRestaurants } from '../../database/allSchemas'
+import { EventRegister } from 'react-native-event-listeners'
 
 class Favourite extends Component {
 
@@ -27,7 +28,20 @@ class Favourite extends Component {
   }
 
   // Life cycle
-  componentWillMount() {
+  componentDidMount() {
+    this.fetchFavRestaurants()
+    this.listener = EventRegister.addEventListener(Constants.REFRESH_RESTAURANT, () => {
+      this.fetchFavRestaurants()
+    })
+  }
+
+  componentWillUnmount() {
+    EventRegister.removeEventListener(this.listener)
+  }
+
+  // Fetch Restaurants from local database
+  fetchFavRestaurants = () => {
+    this.setState({ data: [] })
     var listData = this.state.data;
     fetchRestaurants().then((restaurants) => {
       restaurants.forEach(json => {
@@ -35,9 +49,7 @@ class Favourite extends Component {
         listData.push(restaurant) //concate list with response
       })
       this.setState({ data: listData })
-    }).catch((error) => {
-      console.log(error);
-
+    }).catch(() => {
       alert(Constants.ERROR_LOG)
     })
   }
@@ -53,7 +65,7 @@ class Favourite extends Component {
           <View style={styles.listContainer}>
             <RestaurantList
               // passing items
-              data={this.state.data}
+              data={this.state.data.reverse()}
               // did select row
               didSelectRow={(item) => {
                 this.navigate('Detail', {

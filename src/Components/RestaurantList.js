@@ -7,6 +7,7 @@ import { FlatList } from 'react-native';
 import { ItemRestaurant } from '../components'
 import { saveRestaurant, isRestaurantExist } from '../database/allSchemas'
 import * as Constants from '../Constants'
+import { EventRegister } from 'react-native-event-listeners'
 
 class RestaurantList extends Component {
 
@@ -23,6 +24,7 @@ class RestaurantList extends Component {
             if (!isExist) {
                 saveRestaurant(json).then(() => {
                     alert(Constants.SAVED_RESTA)
+                    EventRegister.emit(Constants.REFRESH_RESTAURANT)
                     resolve()
                 }).catch(() => {
                     alert(Constants.ERROR_LOG)
