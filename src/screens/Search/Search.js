@@ -95,12 +95,6 @@ class Search extends Component {
 
   // Render UI objects 
   render() {
-    if (this.state.loading && this.offset === 0) {
-      return <View style={{
-        width: '100%',
-        height: '100%'
-      }}><ActivityIndicator style={{ color: Colors.theme_color }} /></View>;
-    }
     return (
       <>
         <StatusBar barStyle='dark-content' />
