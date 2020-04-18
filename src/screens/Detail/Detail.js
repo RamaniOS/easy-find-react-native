@@ -6,8 +6,6 @@ import React, { Component } from 'react'
 import {
   View,
   Text,
-  SafeAreaView,
-  Dimensions,
   StatusBar
 } from 'react-native'
 import styles from './DetailStyle'
@@ -27,6 +25,7 @@ class Detail extends Component {
 
   constructor(props) {
     super(props);
+    this.navigate = this.props.navigation.navigate;
     this.item = this.props.navigation.state.params.item;
   }
 
@@ -48,8 +47,10 @@ class Detail extends Component {
     Actions.pop()
   }
 
-  mapButtonClicked() {
-    this.props.navigation.navigate('Map')
+  mapButtonClicked(item) {
+    this.navigate('Map', {
+      item: item
+    });
   }
 
   // Render UI objects 
@@ -118,7 +119,7 @@ class Detail extends Component {
                 </MapView>
                 <View style={styles.directionButton}>
                   <MapButton
-                    onPress={() => { this.mapButtonClicked() }}
+                    onPress={() => { this.mapButtonClicked(this.item) }}
                   />
                 </View>
               </View>
