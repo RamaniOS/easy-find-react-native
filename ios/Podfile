@@ -39,6 +39,10 @@ target 'EasyFind' do
   pod 'RNSDWebImage', :path => '../node_modules/react-native-sdwebimage'
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways.podspec"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse.podspec"
+   
   target 'EasyFindTests' do
     inherit! :search_paths
     # Pods for testing

@@ -41,7 +41,7 @@
 	<string>Allow to access your current location to fetch restaurants near you.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Allow to access your current location to fetch restaurants near you.</string>
-	<key>NSLocationWhenInUseUsageDescription - 2</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow to access your current location to fetch restaurants near you.</string>
 	<key>UIAppFonts</key>
 	<array>

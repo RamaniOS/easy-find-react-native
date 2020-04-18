@@ -8,12 +8,16 @@ import {
   SafeAreaView,
   ActivityIndicator,
   StatusBar,
+  Platform
 } from 'react-native'
 import styles from './SearchStyle'
 import { TitleView, RestaurantList } from '../../components'
 import { SearchBar } from 'react-native-elements';
 import { APIStore } from '../../api'
 import { Colors } from '../../theme'
+import { checkMultiple, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
+import Geolocation from '@react-native-community/geolocation';
+import { log } from 'react-native-reanimated';
 
 class Search extends Component {
 
@@ -32,18 +36,53 @@ class Search extends Component {
     search: '',
     error: '',
     isPagesAvailable: false,
+    latitude: 0.0,
+    longitude: 0.0
   }
 
   // Life cycle
   componentDidMount = () => {
-    this.fetchList('Toronto', this.offset)
+    this.requestPermission()
+  }
+
+  // requesting location permission
+  requestPermission() {
+    request(
+      Platform.select({
+        android: PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+        ios: PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
+      })
+    ).then(res => {
+      if (res == RESULTS.GRANTED) {
+        Geolocation.getCurrentPosition(
+          position => {
+            this.setState({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            })
+            this.fetchList('', this.offset)
+          }
+        )
+      }
+    })
   }
 
   // Fetch restaurants
   fetchList = (location, offset) => {
-    let params = { 'location': location, 'offset': offset }
+    const isSearch = location.trim().length > 0
+    // if we have lat, lng
+    let params = {
+      'latitude': this.state.latitude,
+      'longitude': this.state.longitude,
+      'offset': offset
+    }
+    // if we have search query
+    let paramsSearch = {
+      'location': location,
+      'offset': this.offset
+    }
     this.setState({ loading: true })
-    APIStore.get('businesses/search', { params: params })
+    APIStore.get('businesses/search', { params: isSearch ? paramsSearch : params })
       .then(response => {
         let listData = this.state.data;
         let data = listData.concat(response.data.businesses) //concate list with response
@@ -64,6 +103,7 @@ class Search extends Component {
   }
 
   onClearButtonClicked = () => {
+    this.setState({ search: '' })
     setTimeout(() => {
       this.fetchItems()
     }, 500);
@@ -72,7 +112,7 @@ class Search extends Component {
   fetchItems = () => {
     this.offset = 0
     this.setState({ data: [] })
-    this.fetchList(this.state.search == '' ? 'Toronto' : this.state.search, this.offset)
+    this.fetchList(this.state.search, this.offset)
   }
 
   // For pagination
@@ -81,7 +121,7 @@ class Search extends Component {
     if (!this.state.loading) return null;
     return (
       <ActivityIndicator
-        style={{ color: Colors.theme_color, height: 45 }}
+        style={{ color: Colors.theme_color }}
       />
     );
   };
@@ -89,7 +129,7 @@ class Search extends Component {
   handleLoadMore = () => {
     if (!this.state.loading && this.state.isPagesAvailable) {
       this.offset += this.limit; // increase page
-      this.fetchList('Toronto', this.offset) // method for API call 
+      this.fetchList(this.state.search, this.offset) // method for API call 
     }
   };
 
@@ -138,5 +178,6 @@ class Search extends Component {
     )
   }
 }
+
 
 export default Search;
