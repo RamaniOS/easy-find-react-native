@@ -18,6 +18,7 @@ import { Colors } from '../../theme'
 import { request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import Geolocation from '@react-native-community/geolocation';
 import { isRestaurantExist } from '../../database/allSchemas'
+import { EventRegister } from 'react-native-event-listeners'
 
 class Search extends Component {
 
@@ -100,6 +101,7 @@ class Search extends Component {
     })
     let allData = listData.concat(items) //concate list with response
     this.setState({ loading: false, data: allData })
+    EventRegister.emit(Constants.REFRESH_LIST)
     this.setState({ isPagesAvailable: data.total > this.state.data.length })
   }
 

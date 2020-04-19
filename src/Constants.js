@@ -23,3 +23,4 @@ export const USER_NAME = 'userName';
 /************************************** Refresh Keys ****************************************************/
 
 export const REFRESH_RESTAURANT = 'refreshRestaurant';
+export const REFRESH_LIST = 'refreshList';

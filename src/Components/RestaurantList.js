@@ -11,8 +11,24 @@ import { EventRegister } from 'react-native-event-listeners'
 
 class RestaurantList extends Component {
 
+    // state
+    state = {
+        data: []
+    }
+
+    // Life-cycle
+    componentDidUpdate(prevProps) {
+        if (this.props.data !== prevProps.data) {
+            this.setState({ data: this.props.data })
+        }
+    }
+
+    componentDidMount() {
+        this.setState({ data: this.props.data })
+    }
+
     // Fav button action
-    favButtonClicked = item => new Promise((resolve, reject) => {
+    favButtonClicked = (index, item) => {
         // creating instance
         let json = {
             id: item.id,
@@ -24,34 +40,36 @@ class RestaurantList extends Component {
                 saveRestaurant(json).then(() => {
                     alert(Constants.SAVED_RESTA)
                     EventRegister.emit(Constants.REFRESH_RESTAURANT)
-                    resolve()
-                }).catch(() => {
-                    alert(Constants.ERROR_LOG)
-                    reject()
-                })
+                    this.updateFavStatus(index, item)
+                }).catch(() => { alert(Constants.ERROR_LOG) })
             } else { // deleting..
                 deleteRestaurant(item.id).then(() => {
                     alert(Constants.REMOVED_RESTA)
                     EventRegister.emit(Constants.REFRESH_RESTAURANT)
-                }).catch(() => {
-                    alert(Constants.ERROR_LOG)
-                    reject()
-                })
+                    this.updateFavStatus(index, item)
+                }).catch(() => { alert(Constants.ERROR_LOG) })
             }
         }).catch(() => { })
-    })
+    }
+
+    // update fav status
+    updateFavStatus = (index, item) => {
+        let newData = [...this.state.data]
+        newData[index].isFav = !item.isFav
+        this.setState({ data: newData })
+    }
 
     // rendering UI elements
     render() {
         return (
             <FlatList
-                data={this.props.data}
+                data={this.state.data}
                 keyExtractor={item => item.id}
-                renderItem={({ item }) => (
+                renderItem={({ item, index }) => (
                     <ItemRestaurant
                         item={item}
                         onPress={() => this.props.didSelectRow(item)}
-                        onFavPress={() => this.favButtonClicked(item)}
+                        onFavPress={() => this.favButtonClicked(index, item)}
                     />
                 )}
                 ListFooterComponent={this.props.listFooter}
