@@ -97,8 +97,9 @@ export const isRestaurantExist = id => new Promise((resolve, reject) => {
 export const deleteRestaurant = id => new Promise((resolve, reject) => {
     Realm.open(databaseOptions).then(realm => {
         realm.write(() => {
-            let restaurant = realm.objectForPrimaryKey(RESTAURANT_SCHEMA, id)
-            realm.delete(restaurant)
+            let restaurants = realm.objects(RESTAURANT_SCHEMA)
+            let filterRestaurant = restaurants.filtered('id == $0', id)
+            realm.delete(filterRestaurant)
             resolve()
         })
     }).catch((error) => reject(error))

@@ -5,7 +5,7 @@ Class to manage Restaurant List
 import React, { Component } from 'react'
 import { FlatList } from 'react-native';
 import { ItemRestaurant } from '../components'
-import { saveRestaurant, isRestaurantExist } from '../database/allSchemas'
+import { saveRestaurant, isRestaurantExist, deleteRestaurant } from '../database/allSchemas'
 import * as Constants from '../Constants'
 import { EventRegister } from 'react-native-event-listeners'
 
@@ -20,12 +20,19 @@ class RestaurantList extends Component {
         }
         // checking restaurant already exist or not
         isRestaurantExist(item.id).then((isExist) => {
-            // saving..
-            if (!isExist) {
+            if (!isExist) { // saving..
                 saveRestaurant(json).then(() => {
                     alert(Constants.SAVED_RESTA)
                     EventRegister.emit(Constants.REFRESH_RESTAURANT)
                     resolve()
+                }).catch(() => {
+                    alert(Constants.ERROR_LOG)
+                    reject()
+                })
+            } else { // deleting..
+                deleteRestaurant(item.id).then(() => {
+                    alert(Constants.REMOVED_RESTA)
+                    EventRegister.emit(Constants.REFRESH_RESTAURANT)
                 }).catch(() => {
                     alert(Constants.ERROR_LOG)
                     reject()

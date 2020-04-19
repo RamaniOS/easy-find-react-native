@@ -13,8 +13,8 @@ export const ERROR_PASSWORD = 'Please enter your password';
 export const ERROR_LOGIN = 'Invalid Username / Password combination';
 export const ERROR_LOG = 'Something went wrong';
 export const ERROR_USERNAME = 'This username is already taken.Please try another one';
-export const SAVED_RESTA = 'Restaurant saved successfully';
-
+export const SAVED_RESTA = 'Restaurant saved to Favourite successfully';
+export const REMOVED_RESTA = 'Restaurant removed from Favourite successfully';
 /************************************** Storage Keys ****************************************************/
 
 export const IS_LOGIN = 'isLogin';
