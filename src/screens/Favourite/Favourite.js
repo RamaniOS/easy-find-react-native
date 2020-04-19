@@ -46,6 +46,7 @@ class Favourite extends Component {
     fetchRestaurants().then((restaurants) => {
       restaurants.forEach(json => {
         let restaurant = JSON.parse(json.jsonValue)
+        restaurant['isFav'] = true // we know, we all have fav here
         listData.push(restaurant) //concate list with response
       })
       this.setState({ data: listData })

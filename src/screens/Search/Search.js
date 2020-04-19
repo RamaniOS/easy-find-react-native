@@ -15,9 +15,9 @@ import { TitleView, RestaurantList } from '../../components'
 import { SearchBar } from 'react-native-elements';
 import { APIStore } from '../../api'
 import { Colors } from '../../theme'
-import { checkMultiple, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
+import { request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import Geolocation from '@react-native-community/geolocation';
-import { log } from 'react-native-reanimated';
+import { isRestaurantExist } from '../../database/allSchemas'
 
 class Search extends Component {
 
@@ -84,13 +84,23 @@ class Search extends Component {
     this.setState({ loading: true })
     APIStore.get('businesses/search', { params: isSearch ? paramsSearch : params })
       .then(response => {
-        let listData = this.state.data;
-        let data = listData.concat(response.data.businesses) //concate list with response
-        this.setState({ loading: false, data: data })
-        this.setState({ isPagesAvailable: response.data.total > this.state.data.length })
+        this.setDataToState(response.data)
       }).catch(error => {
-        this.setState({ loading: false, error: 'Something just went wrong' })
+        this.setState({ loading: false, error: error })
       });
+  }
+
+  setDataToState(data) {
+    let listData = this.state.data;
+    let items = data.businesses
+    items.forEach(item => {
+      isRestaurantExist(item.id).then((isExist) => {
+        item['isFav'] = isExist
+      })
+    })
+    let allData = listData.concat(items) //concate list with response
+    this.setState({ loading: false, data: allData })
+    this.setState({ isPagesAvailable: data.total > this.state.data.length })
   }
 
   // For search

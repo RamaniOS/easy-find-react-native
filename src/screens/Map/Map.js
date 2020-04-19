@@ -82,15 +82,6 @@ class Map extends Component {
     Actions.pop()
   }
 
-  fitAllMarkers() {
-    this.map.fitToCoordinates(
-      [{ latitude: this.item.latitude, longitude: this.item.longitude },
-      { latitude: this.state.latitude, longitude: this.state.longitude }], {
-      animated: true,
-      edgePadding: DEFAULT_PADDING,
-    })
-  }
-
   // Render UI objects 
   render() {
     return (
@@ -99,13 +90,9 @@ class Map extends Component {
         <View style={styles.mainConatiner}>
           <BackButton topMargin={'5%'} onPress={() => { this.backButtonClicked() }} />
           <MapView
-            ref={ref => {
-              this.map = ref;
-            }}
             provider={PROVIDER_GOOGLE} // remove if not using Google Maps
             style={styles.map}
             showsUserLocation={true}
-            onMapReady={this.fitAllMarkers.bind(this)}
             region={{
               latitude: this.state.latitude,
               longitude: this.state.longitude,

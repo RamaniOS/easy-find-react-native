@@ -7,7 +7,6 @@ import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import { Colors, Fonts, Images } from '../theme'
 import { Rating } from 'react-native-elements';
 import RNSDWebImage from 'react-native-sdwebimage';
-import { isRestaurantExist } from '../database/allSchemas'
 
 const ItemRestaurant = ({ item, onPress, onFavPress }) => {
 
@@ -18,24 +17,6 @@ const ItemRestaurant = ({ item, onPress, onFavPress }) => {
         }
         categories = categories.concat(element.title)
     })
-
-    const renderImage = (item) => {
-        isRestaurantExist(item.id).then((isExist) => {
-            return (
-                <Image
-                    source={isExist ? Images.fav : Images.un_fav}
-                    style={{ height: 26, width: 26 }}
-                />
-            )
-        }).catch(() => {
-            return (
-                <Image
-                    source={Images.un_fav}
-                    style={{ height: 26, width: 26 }}
-                />
-            )
-        })
-    }
 
     return (
         <TouchableOpacity
@@ -71,9 +52,14 @@ const ItemRestaurant = ({ item, onPress, onFavPress }) => {
                 </View>
                 <View style={styles.favStyle}>
                     <TouchableOpacity
-                        onPress={() => { }}
+                        onPress={() => {
+                            onFavPress(item)
+                        }}
                     >
-                        {renderImage(item)}
+                        <Image
+                            source={item.isFav ? Images.fav : Images.un_fav}
+                            style={{ height: 26, width: 26 }}
+                        />
                     </TouchableOpacity>
                 </View>
             </View>
