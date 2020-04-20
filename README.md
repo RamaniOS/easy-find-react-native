@@ -8,7 +8,7 @@ Find local restaurants, read expert customer reviews, and start searching for re
  
  <span style="color: green">  tetet </span>
 <p align="center">
-  <img src="Images/login.png" width= 200>   <img src="Images/signup.png" width= 200>    <img src="Images/search.png" width= 200>    <img src="Images/fav.png" width= 200>   <img src="Images/detail.png" width= 200>    <img src="Images/map.png" width= 200>   <img src="Images/settings.png" width= 200>
+  <img src="Images/login.png" width= 200>   <img src="Images/signup.png" width= 200>    <img src="Images/search.png" width= 200>    <img src="Images/fav.png" width= 200>
   </p>
 
 
