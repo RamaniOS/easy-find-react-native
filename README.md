@@ -42,17 +42,19 @@ And of course EasyFind itself is open source with a [public repository][git] on 
 
 EasyFind is currently extended with the following libraries. Instructions on how to use them in your own application are linked below.
 
-| Pods | Repository |
+| npm | Repository |
 | ------ | ------ |
-| Alamofire | [Alamofire] |
-| Cosmos | [Cosmos] |
-| IQKeyboardManagerSwift | [IQKeyBoard] |
-| SDWebImage | [SDWebImage] |
+| react-native-axios | [axios] |
+| react-native-elements | [elements] |
+| react-native-maps | [maps] |
+| react-native-router-flux | [router] |
 
 ### Todos
 
- - Added Realm database to save favourite restaurants
- - Added Google Maps
+- Login, Signup, Logout
+- Fetch list of restaurants from YELP API
+- Added Realm database to save favourite restaurants
+- Added Google Maps
  
 License
 ----
@@ -67,12 +69,10 @@ MIT
    [git]: <https://github.com/RamaniOS/EasyFind_Cross-Platform.git>
    [react-native]: <https://reactnative.dev/>
    [yelp API]: <https://www.yelp.com/developers/v3/manage_app>
-   [alamofire]: <https://github.com/Alamofire/Alamofire>
-   [cosmos]: <https://github.com/evgenyneu/Cosmos>
-   [SDWebImage]: <https://github.com/SDWebImage/SDWebImage>
-   [IQKeyboard]: <https://github.com/hackiftekhar/IQKeyboardManager/tree/master/IQKeyboardManagerSwift>
-   [ramanpreet]: <https://github.com/RamaniOS>
-   [nitin]: <https://github.com/nathanjaswal>
+   [axios]: <https://www.npmjs.com/package/react-native-axios>
+   [elements]: <https://react-native-elements.github.io/react-native-elements/docs/getting_started.html>
+   [maps]: <https://github.com/react-native-community/react-native-maps>
+   [router]: <https://github.com/aksonov/react-native-router-flux/blob/master/docs/API.mdt>
    
    
    
