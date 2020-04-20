@@ -5,10 +5,11 @@ Find local restaurants, read expert customer reviews, and start searching for re
   - **Core Data**
   - **Mapkit**
   # Screens!
-  
+  <span style="color: green">
+
   <img src="Images/login.png" width= 200> <img src="Images/signup.png" width= 200><img src="Images/search.png" width= 200><img src="Images/fav.png" width= 200><img src="Images/detail.png" width= 200><img src="Images/map.png" width= 200><img src="Images/settings.png" width= 200>
   
-  
+  </span>
 
   #  Features!
 
