@@ -13,40 +13,49 @@ class RestaurantList extends Component {
 
     // state
     state = {
-        data: []
+        data: [],
+        type: ''
     }
 
     // Life-cycle
-    componentDidUpdate(prevProps) {
-        if (this.props.data !== prevProps.data) {
-            this.setState({ data: this.props.data })
-        }
-    }
-
     componentDidMount() {
         this.setState({ data: this.props.data })
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.data !== prevProps.data) {
+            this.setState({ data: this.props.data, type: this.props.type })
+        }
+    }
+
     // Fav button action
     favButtonClicked = (index, item) => {
-        // creating instance
-        let json = {
-            id: item.id,
-            jsonValue: JSON.stringify(item)
-        }
         // checking restaurant already exist or not
         isRestaurantExist(item.id).then((isExist) => {
             if (!isExist) { // saving..
+                // creating instance
+                let json = {
+                    id: item.id,
+                    jsonValue: JSON.stringify(item)
+                }
                 saveRestaurant(json).then(() => {
-                    alert(Constants.SAVED_RESTA)
                     EventRegister.emit(Constants.REFRESH_RESTAURANT)
-                    this.updateFavStatus(index, item)
-                }).catch(() => { alert(Constants.ERROR_LOG) })
+                    if (this.state.type == Constants.SEARCH_LIST) {
+                        this.updateFavStatus(index, item)
+                    } else {
+                        EventRegister.emit(Constants.REFRESH_SEARCH)
+                    }
+                    alert(Constants.SAVED_RESTA)
+                }).catch((error) => { alert(Constants.ERROR_LOG) })
             } else { // deleting..
                 deleteRestaurant(item.id).then(() => {
-                    alert(Constants.REMOVED_RESTA)
                     EventRegister.emit(Constants.REFRESH_RESTAURANT)
-                    this.updateFavStatus(index, item)
+                    if (this.state.type == Constants.SEARCH_LIST) {
+                        this.updateFavStatus(index, item)
+                    } else {
+                        EventRegister.emit(Constants.REFRESH_SEARCH)
+                    }
+                    alert(Constants.REMOVED_RESTA)
                 }).catch(() => { alert(Constants.ERROR_LOG) })
             }
         }).catch(() => { })

@@ -18,6 +18,8 @@ import { Colors } from '../../theme'
 import { request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import Geolocation from '@react-native-community/geolocation';
 import { isRestaurantExist } from '../../database/allSchemas'
+import * as Constants from '../../Constants'
+import { EventRegister } from 'react-native-event-listeners'
 
 class Search extends Component {
 
@@ -43,6 +45,14 @@ class Search extends Component {
   // Life cycle
   componentDidMount = () => {
     this.requestPermission()
+    this.listener = EventRegister.addEventListener(Constants.REFRESH_SEARCH, () => {
+      this.setState({ data: [] })
+      this.requestRestaurants()
+    })
+  }
+
+  componentWillUnmount() {
+    EventRegister.removeEventListener(this.listener)
   }
 
   // requesting location permission
@@ -54,17 +64,23 @@ class Search extends Component {
       })
     ).then(res => {
       if (res == RESULTS.GRANTED) {
-        Geolocation.getCurrentPosition(
-          position => {
-            this.setState({
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude
-            })
-            this.fetchList('', this.offset)
-          }
-        )
+        this.requestRestaurants()
       }
     })
+  }
+
+  // Request Restaurants acc to location
+  requestRestaurants() {
+    Geolocation.getCurrentPosition(
+      position => {
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        })
+        this.offset = 0
+        this.fetchList('', this.offset)
+      }
+    )
   }
 
   // Fetch restaurants
@@ -166,6 +182,8 @@ class Search extends Component {
           />
           <View style={styles.listContainer}>
             <RestaurantList
+              // passing type
+              type={Constants.SEARCH_LIST}
               // passing items
               data={this.state.data}
               // did select row

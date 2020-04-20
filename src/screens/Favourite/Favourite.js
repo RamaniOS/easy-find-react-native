@@ -9,7 +9,7 @@ import {
   StatusBar,
 } from 'react-native'
 import styles from './FavouriteStyle'
-import { TitleView, RestaurantList } from '../../components'
+import { TitleView, RestaurantList, NoItemsView } from '../../components'
 import * as Constants from '../../Constants'
 import { fetchRestaurants } from '../../database/allSchemas'
 import { EventRegister } from 'react-native-event-listeners'
@@ -55,6 +55,7 @@ class Favourite extends Component {
     })
   }
 
+
   // Render UI objects 
   render() {
     return (
@@ -64,7 +65,11 @@ class Favourite extends Component {
         <View style={styles.mainConatiner}>
           <TitleView title={'Favourite'}></TitleView>
           <View style={styles.listContainer}>
+            {/* showing no items message */}
+            {this.state.data.length == 0 ? <NoItemsView /> : null}
             <RestaurantList
+              // passing type
+              type={Constants.FAV_LIST}
               // passing items
               data={this.state.data.reverse()}
               // did select row
