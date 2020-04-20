@@ -6,9 +6,9 @@ Find local restaurants, read expert customer reviews, and start searching for re
   - **Mapkit**
   # Screens
  
-# SignIn & Signup Screens
+# SignIn, Signup & Info Screens
 <p align="center">
-  <img src="Images/login.png" width= 250>   <img src="Images/signup.png" width= 250>
+  <img src="Images/login.png" width= 250>   <img src="Images/signup.png" width= 250>        <img src="Images/settings.png" width= 250>
  </p>
 
 # Restaurants Screens
