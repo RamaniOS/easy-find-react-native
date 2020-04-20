@@ -1,10 +1,11 @@
 # EasyFind_Cross-Platform
 
 Find local restaurants, read expert customer reviews, and start searching for restaurants near you with Yelp.
-  - **Swift 5**
-  - **Core Data**
-  - **Mapkit**
-  # Screens
+  - **React Native**
+  - **Realm**
+  - **Google Maps**
+
+# Screens
  
 # SignIn, Signup & Info Screens
 <p align="center">
@@ -16,7 +17,7 @@ Find local restaurants, read expert customer reviews, and start searching for re
   <img src="Images/search.png" width= 200>      <img src="Images/fav.png" width= 200>       <img src="Images/detail.png" width= 200>      <img src="Images/map.png" width= 200> 
  </p>
       
-  #  Features!
+#  Features!
 
   - Find the newest and hottest restaurants in your area
   - Search restaurant results by location
@@ -27,17 +28,15 @@ Find local restaurants, read expert customer reviews, and start searching for re
 
  - Open  [public repository][git]
  - Here you can clone or download project
- - You can also open in Xocde directly
 
-  ### Tech
+### Tech
 
 EasyFind uses a number of open source projects to work properly:
 
-* [Swift] - Language used to build this app. 
+* [React-Native] - React Native is an open-source mobile application framework created by Facebook. It is used to develop applications for Android, iOS, Web and UWP by enabling developers to use React along with native platform capabilities. An incomplete port for Qt also exists.
 * [Yelp API] - The Yelp Fusion API allows you to get the best local content and user reviews from millions of businesses across 32 countries. This tutorial provides an overview of the capabilities our suite of APIs offer, provides instructions for how to authenticate API calls, and walks through a simple scenario using the API.
 
-And of course EasyFind itself is open source with a [public repository][git]
- on GitHub.
+And of course EasyFind itself is open source with a [public repository][git] on GitHub.
 
 ### Libraries
 
@@ -50,17 +49,10 @@ EasyFind is currently extended with the following libraries. Instructions on how
 | IQKeyboardManagerSwift | [IQKeyBoard] |
 | SDWebImage | [SDWebImage] |
 
-### Developers
-
-| Developer | Github Account |
-| ------ | ------ |
-| Ramanpreet Singh | [Ramanpreet] |
-| Nitin Jaswal | [Nitin] |
-
 ### Todos
 
- - Added Core Data to save favourite restaurants
- - Added Mapkit
+ - Added Realm database to save favourite restaurants
+ - Added Google Maps
  
 License
 ----
@@ -72,8 +64,8 @@ MIT
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-   [git]: <https://github.com/RamaniOS/EasyFind.git>
-   [swift]: <https://developer.apple.com/documentation/swift>
+   [git]: <https://github.com/RamaniOS/EasyFind_Cross-Platform.git>
+   [react-native]: <https://reactnative.dev/>
    [yelp API]: <https://www.yelp.com/developers/v3/manage_app>
    [alamofire]: <https://github.com/Alamofire/Alamofire>
    [cosmos]: <https://github.com/evgenyneu/Cosmos>
