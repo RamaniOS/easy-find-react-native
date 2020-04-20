@@ -6,7 +6,8 @@ Find local restaurants, read expert customer reviews, and start searching for re
   - **Mapkit**
   # Screens!
   
-  <img src="Images/login.png" width= 200>
+  <img src="Images/login.png" width= 200> <img src="Images/signup.png" width= 200>
+  
   
 
   #  Features!
