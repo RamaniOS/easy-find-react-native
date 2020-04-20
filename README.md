@@ -7,7 +7,7 @@ Find local restaurants, read expert customer reviews, and start searching for re
   # Screens!
   <span style="color: green">
 
-  <img src="Images/login.png" width= 250> <img src="Images/signup.png" width= 250> <img src="Images/search.png" width= 250>
+  <img src="Images/login.png" width= 250>.  <img src="Images/signup.png" width= 250> <img src="Images/search.png" width= 250>
   
   <img src="Images/fav.png" width= 250>
   
