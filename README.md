@@ -1,4 +1,6 @@
-# EasyFind_Cross-Platform
+# EasyFind
+
+**Support both iOS & Android**
 
 Find local restaurants, read expert customer reviews, and start searching for restaurants near you with Yelp.
   - **React Native**
