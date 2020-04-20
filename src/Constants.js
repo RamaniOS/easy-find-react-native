@@ -2,8 +2,6 @@
 Class to manage constants
 */
 
-import { exp } from "react-native-reanimated";
-
 /************************************** Error messages ****************************************************/
 export const ERROR_INVALID_USER_NAME = 'Please enter a valid user name';
 export const ERROR_INVALID_NAME = 'Please enter a valid Full name';
@@ -23,3 +21,9 @@ export const USER_NAME = 'userName';
 /************************************** Refresh Keys ****************************************************/
 
 export const REFRESH_RESTAURANT = 'refreshRestaurant';
+export const REFRESH_SEARCH = 'refreshSearch';
+
+/************************************** Type of List ****************************************************/
+
+export const FAV_LIST = 'Fav';
+export const SEARCH_LIST = 'Search';

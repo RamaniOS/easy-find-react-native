@@ -13,9 +13,10 @@ import styles from './SettingsStyle'
 import { Button } from '../../components'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { isUserExist } from '../../database/allSchemas'
-import { getAsyncStorage } from '../../Utilis';
+import { getAsyncStorage, saveToAsyncStorage } from '../../Utilis';
 import * as Constants from '../../Constants';
 import { Actions } from 'react-native-router-flux'
+import { onLogout } from '../../database/allSchemas'
 
 class Settings extends Component {
 
@@ -42,6 +43,10 @@ class Settings extends Component {
 
   // Actions
   logoutButtonClicked() {
+    // removing saved data for this user
+    onLogout().then(() => { }).catch(() => { })
+    // saving login status
+    saveToAsyncStorage(Constants.IS_LOGIN, JSON.stringify(false)).then(() => { })
     Actions.Login()
   }
 

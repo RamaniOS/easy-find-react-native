@@ -113,4 +113,14 @@ export const fetchRestaurants = () => new Promise((resolve, reject) => {
     }).catch((error) => reject(error))
 })
 
+// Delete All Restaurant
+export const onLogout = () => new Promise((resolve, reject) => {
+    Realm.open(databaseOptions).then(realm => {
+        realm.write(() => {
+            let restaurants = realm.objects(RESTAURANT_SCHEMA)
+            realm.delete(restaurants);
+        })
+    }).catch((error) => reject(error))
+})
+
 export default new Realm(databaseOptions)
