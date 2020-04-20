@@ -6,11 +6,16 @@ Find local restaurants, read expert customer reviews, and start searching for re
   - **Mapkit**
   # Screens
  
-# SignIn & Signup
-<p align="auto">
-  <img src="Images/login.png" width= 200>   <img src="Images/signup.png" width= 200>
+# SignIn & Signup Screens
+<p align="center">
+  <img src="Images/login.png" width= 250>   <img src="Images/signup.png" width= 250>
  </p>
-  
+
+# Restaurants Screens
+<p align="center">
+  img src="Images/search.png" width= 200>    <img src="Images/fav.png" width= 200>      <img src="Images/detail.png" width= 200>      <img src="Images/map.png" width= 200> 
+ </p>
+      
   #  Features!
 
   - Find the newest and hottest restaurants in your area
