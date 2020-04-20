@@ -6,7 +6,7 @@ Find local restaurants, read expert customer reviews, and start searching for re
   - **Mapkit**
   # Screens!
   
-  ![alt text](https://github.com/RamaniOS/EasyFind_Cross-Platform/tree/Ramanpreet/Images/login.png)
+  !(https://github.com/RamaniOS/EasyFind_Cross-Platform/tree/Ramanpreet/Images/login.png)
 
   #  Features!
 
