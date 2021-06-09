@@ -2,7 +2,7 @@
 
 **Support both iOS & Android**
 
-Find local restaurants, read expert customer reviews, and start searching for restaurants near you with Yelp.
+Find local restaurants, view customer reviews, and start searching for restaurants near you with Yelp.
   - **React Native**
   - **Realm**
   - **Google Maps**
